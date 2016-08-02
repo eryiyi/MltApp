@@ -7,13 +7,13 @@
     <RelativeLayout android:layout_width="match_parent"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
-                    android:background="@color/top_bg"
+                    android:background="@color/mm_top_bg"
                     android:layout_height="@dimen/top_title_height">
         <TextView android:layout_width="wrap_content"
                   android:layout_centerInParent="true"
                   android:text="商圈"
                   android:gravity="center_vertical"
-                  android:textColor="@color/white"
+                  android:textColor="@color/text_color"
                   android:textSize="18sp"
                   android:layout_height="45dp"/>
     </RelativeLayout>

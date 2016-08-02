@@ -151,9 +151,9 @@
     <color name="black_deep">#FF000000</color>
 
 
-    <color name="mm_top_bg">#37363b</color>
+    <color name="mm_top_bg">#ffffff</color>
     <color name="mm_btn_bg">#666371</color>
-    <color name="mm_main_bg">#efeff4</color>
+    <color name="mm_main_bg">#c6c5c5</color>
     <color name="top_bg">#37363b</color>
 
     <color name="btn_green_normal">#1aad19</color>

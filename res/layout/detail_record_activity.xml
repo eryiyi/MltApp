@@ -16,7 +16,7 @@
                   android:padding="6dp"
                   android:id="@+id/mback"
                   android:drawableLeft="@drawable/button_selector_back"
-                  android:textColor="@color/white"
+                  android:textColor="@color/text_color"
                   android:layout_centerVertical="true"
                   android:layout_height="wrap_content"/>
     </RelativeLayout>

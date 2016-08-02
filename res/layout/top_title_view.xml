@@ -6,7 +6,7 @@
     <RelativeLayout android:layout_width="match_parent"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
-                    android:background="@color/white"
+                    android:background="@color/mm_top_bg"
                     android:layout_height="@dimen/top_title_height">
         <TextView android:layout_width="wrap_content"
                   android:layout_centerVertical="true"
@@ -17,7 +17,7 @@
                   android:drawablePadding="6dp"
                   android:gravity="center_vertical"
                   android:textColor="@color/text_color"
-                  android:textSize="13sp"
+                  android:textSize="14sp"
                   android:layout_height="45dp"/>
 
         <LinearLayout android:layout_width="wrap_content"

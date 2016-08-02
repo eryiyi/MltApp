@@ -116,6 +116,7 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
 //        search_liner.setVisibility(View.GONE);
         mLocation = (TextView) view.findViewById(R.id.mLocation);
         mLocation.setOnClickListener(this);
+        view.findViewById(R.id.btn_search).setOnClickListener(this);
         view.findViewById(R.id.btn_add).setOnClickListener(this);
         no_data = (ImageView) view.findViewById(R.id.no_data);
         lstv = (PullToRefreshListView) view.findViewById(R.id.lstv);
@@ -524,6 +525,11 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
                         startActivity(addV);
                     }
                 }
+            }
+            break;
+            case R.id.btn_search:
+            {
+                //搜索
             }
             break;
         }
