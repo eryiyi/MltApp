@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
@@ -29,6 +30,7 @@ import com.Lbins.Mlt.module.Emp;
 import com.Lbins.Mlt.module.EmpAdObj;
 import com.Lbins.Mlt.util.StringUtil;
 import com.Lbins.Mlt.widget.ContentListView;
+import com.Lbins.Mlt.widget.SelectTelPopWindow;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -420,7 +422,7 @@ public class ProfileActivity extends BaseActivity implements View.OnClickListene
 
                 recordVO = lists.get(position);
                 if (recordVO != null && !StringUtil.isNullOrEmpty(recordVO.getMm_emp_mobile())) {
-                    showTel(recordVO.getMm_emp_mobile(), recordVO.getMm_emp_nickname());
+                    showTel(recordVO.getMm_emp_cover(), recordVO.getMm_emp_mobile(), recordVO.getMm_emp_nickname(),recordVO.getMm_emp_company());
                 } else {
                     //
                     Toast.makeText(ProfileActivity.this, R.string.no_tel, Toast.LENGTH_SHORT).show();
@@ -595,36 +597,29 @@ public class ProfileActivity extends BaseActivity implements View.OnClickListene
         picAddDialog.show();
     }
 
-
-    // 拨打电话窗口
-    private void showTel(final String tel, String name) {
-        final Dialog picAddDialog = new Dialog(ProfileActivity.this, R.style.dialog);
-        View picAddInflate = View.inflate(ProfileActivity.this, R.layout.tel_dialog, null);
-        TextView btn_sure = (TextView) picAddInflate.findViewById(R.id.btn_sure);
-        final TextView jubao_cont = (TextView) picAddInflate.findViewById(R.id.jubao_cont);
-        jubao_cont.setText(tel + " " + name);
-        btn_sure.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tel));
-                startActivity(intent);
-                picAddDialog.dismiss();
-            }
-        });
-
-        //取消
-        TextView btn_cancel = (TextView) picAddInflate.findViewById(R.id.btn_cancel);
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                picAddDialog.dismiss();
-            }
-        });
-        picAddDialog.setContentView(picAddInflate);
-        picAddDialog.show();
+    private SelectTelPopWindow telphonePop;
+    private String tmpTel = "";
+    private void showTel(String cover, String tel, String nickname,String company) {
+        tmpTel = tel;
+        telphonePop = new SelectTelPopWindow(ProfileActivity.this, itemsOnClick, nickname, company, cover);
+        telphonePop.showAtLocation(this.findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
     }
-
+    private View.OnClickListener itemsOnClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            telphonePop.dismiss();
+            switch (v.getId()) {
+                case R.id.btn_sure: {
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tmpTel));
+                    startActivity(intent);
+                }
+                break;
+                case R.id.btn_cancel: {}
+                break;
+                default:
+                    break;
+            }
+        }
+    };
     private RecordMsg recordMsgTmp;
 
     void share(RecordMsg recordVO) {

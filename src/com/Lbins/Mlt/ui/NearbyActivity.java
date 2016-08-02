@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.*;
 import com.Lbins.Mlt.R;
@@ -18,6 +19,7 @@ import com.Lbins.Mlt.library.internal.PullToRefreshBase;
 import com.Lbins.Mlt.library.internal.PullToRefreshListView;
 import com.Lbins.Mlt.module.Emp;
 import com.Lbins.Mlt.util.StringUtil;
+import com.Lbins.Mlt.widget.SelectTelPopWindow;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -237,43 +239,34 @@ public class NearbyActivity extends BaseActivity implements View.OnClickListener
             {
                 Emp emp = lists.get(position);
                 if (emp != null) {
-                    showTel(emp.getMm_emp_mobile());
+                    showTel(emp.getMm_emp_cover(),emp.getMm_emp_mobile(),emp.getMm_emp_nickname(), emp.getMm_emp_company());
                 }
             }
                 break;
         }
     }
-    // 拨打电话窗口
-    private void showTel(String tel) {
-        final Dialog picAddDialog = new Dialog(NearbyActivity.this, R.style.dialog);
-        View picAddInflate = View.inflate(NearbyActivity.this, R.layout.tel_dialog, null);
-        TextView btn_sure = (TextView) picAddInflate.findViewById(R.id.btn_sure);
-        final TextView jubao_cont = (TextView) picAddInflate.findViewById(R.id.jubao_cont);
-        jubao_cont.setText(tel);
-        //提交
-        btn_sure.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String contreport = jubao_cont.getText().toString();
-                if (!StringUtil.isNullOrEmpty(contreport)) {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + jubao_cont.getText().toString()));
+    private SelectTelPopWindow telphonePop;
+    private String tmpTel = "";
+    private void showTel(String cover, String tel, String nickname,String company) {
+        tmpTel = tel;
+        telphonePop = new SelectTelPopWindow(NearbyActivity.this, itemsOnClick, nickname, company, cover);
+        telphonePop.showAtLocation(this.findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+    }
+    private View.OnClickListener itemsOnClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            telphonePop.dismiss();
+            switch (v.getId()) {
+                case R.id.btn_sure: {
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tmpTel));
                     startActivity(intent);
                 }
-                picAddDialog.dismiss();
+                break;
+                case R.id.btn_cancel: {}
+                break;
+                default:
+                    break;
             }
-        });
-
-        //取消
-        TextView btn_cancel = (TextView) picAddInflate.findViewById(R.id.btn_cancel);
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                picAddDialog.dismiss();
-            }
-        });
-        picAddDialog.setContentView(picAddInflate);
-        picAddDialog.show();
-    }
+        }
+    };
 
 }

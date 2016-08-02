@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.Lbins.Mlt.data.KefuTelData;
 import com.Lbins.Mlt.library.internal.PullToRefreshListView;
 import com.Lbins.Mlt.module.KefuTel;
 import com.Lbins.Mlt.util.StringUtil;
+import com.Lbins.Mlt.widget.SelectTelPopWindow;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -241,7 +243,11 @@ public class SelectTelActivity extends BaseActivity implements View.OnClickListe
                 if (lists.size() > (i - 1)) {
                     KefuTel kefuTel = lists.get(i - 1);
                     if (kefuTel != null) {
-                        showTel(kefuTel.getMm_tel());
+                        String tel = kefuTel.getProvinceName() + kefuTel.getCityName() + kefuTel.getAreaName();
+                        if(StringUtil.isNullOrEmpty(tel)){
+                            tel = "全国客服";
+                        }
+                        showTel("", kefuTel.getMm_tel(), tel ,"");
                     }
                 }
             }
@@ -252,7 +258,7 @@ public class SelectTelActivity extends BaseActivity implements View.OnClickListe
                 if (listsAll.size() > (i - 1)) {
                     KefuTel kefuTel = listsAll.get(i - 1);
                     if (kefuTel != null) {
-                        showTel(kefuTel.getMm_tel());
+                        showTel("", kefuTel.getMm_tel(),  "全国客服" ,"");
                     }
                 }
             }
@@ -260,38 +266,30 @@ public class SelectTelActivity extends BaseActivity implements View.OnClickListe
 
     }
 
-    // 拨打电话窗口
-    private void showTel(String tel) {
-        final Dialog picAddDialog = new Dialog(SelectTelActivity.this, R.style.dialog);
-        View picAddInflate = View.inflate(SelectTelActivity.this, R.layout.tel_dialog, null);
-        TextView btn_sure = (TextView) picAddInflate.findViewById(R.id.btn_sure);
-        final TextView jubao_cont = (TextView) picAddInflate.findViewById(R.id.jubao_cont);
-        jubao_cont.setText(tel);
-        //提交
-        btn_sure.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String contreport = jubao_cont.getText().toString();
-                if (!StringUtil.isNullOrEmpty(contreport)) {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + jubao_cont.getText().toString()));
+    private SelectTelPopWindow telphonePop;
+    private String tmpTel = "";
+    private void showTel(String cover, String tel, String nickname,String company) {
+        tmpTel = tel;
+        telphonePop = new SelectTelPopWindow(SelectTelActivity.this, itemsOnClick, nickname, company, cover);
+        telphonePop.showAtLocation(this.findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+    }
+    private View.OnClickListener itemsOnClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            telphonePop.dismiss();
+            switch (v.getId()) {
+                case R.id.btn_sure: {
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tmpTel));
                     startActivity(intent);
                 }
-                picAddDialog.dismiss();
+                break;
+                case R.id.btn_cancel: {}
+                break;
+                default:
+                    break;
             }
-        });
+        }
+    };
 
-        //取消
-        TextView btn_cancel = (TextView) picAddInflate.findViewById(R.id.btn_cancel);
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                picAddDialog.dismiss();
-            }
-        });
-        picAddDialog.setContentView(picAddInflate);
-        picAddDialog.show();
-    }
 
     private void InitTextView() {
         textView1 = (TextView) findViewById(R.id.text1);

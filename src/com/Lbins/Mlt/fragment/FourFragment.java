@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -672,6 +673,7 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
         deleteWindow = new SelectPhoPopWindow(getActivity(), itemsOnClick);
         //显示窗口
         deleteWindow.showAtLocation(getActivity().findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+//        deleteWindow.setBackgroundDrawable(new ColorDrawable(0x55000000));
 
     }
 
@@ -917,4 +919,5 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
         };
         getRequestQueue().add(request);
     }
+
 }

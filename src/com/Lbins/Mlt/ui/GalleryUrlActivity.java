@@ -51,6 +51,12 @@ public class GalleryUrlActivity extends BaseActivity {
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(pagerAdapter);
         mViewPager.setCurrentItem(pagerPosition);
+        mViewPager.setOnItemClickListener(new GalleryViewPager.OnItemClickListener() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                finish();
+            }
+        });
     }
 
     public void download(View view) {

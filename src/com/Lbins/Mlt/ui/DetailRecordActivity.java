@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.*;
 import com.Lbins.Mlt.R;
@@ -16,6 +17,7 @@ import com.Lbins.Mlt.base.BaseActivity;
 import com.Lbins.Mlt.base.InternetURL;
 import com.Lbins.Mlt.dao.RecordMsg;
 import com.Lbins.Mlt.util.StringUtil;
+import com.Lbins.Mlt.widget.SelectTelPopWindow;
 import com.Lbins.Mlt.widget.VideoPlayer;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -205,7 +207,7 @@ public class DetailRecordActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.telbtn:
                 //电话
-                showTel(recordVO.getMm_emp_mobile(), recordVO.getMm_emp_nickname());
+                showTel(recordVO.getMm_emp_cover(), recordVO.getMm_emp_mobile(), recordVO.getMm_emp_nickname(), recordVO.getMm_emp_company());
                 break;
             case R.id.head:
                 //头像
@@ -230,38 +232,29 @@ public class DetailRecordActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
-    // 拨打电话窗口
-    private void showTel(final String tel, String nickname) {
-        final Dialog picAddDialog = new Dialog(DetailRecordActivity.this, R.style.dialog);
-        View picAddInflate = View.inflate(DetailRecordActivity.this, R.layout.tel_dialog, null);
-        TextView btn_sure = (TextView) picAddInflate.findViewById(R.id.btn_sure);
-        final TextView jubao_cont = (TextView) picAddInflate.findViewById(R.id.jubao_cont);
-        jubao_cont.setText(tel + " " + nickname);
-        //提交
-        btn_sure.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String contreport = jubao_cont.getText().toString();
-                if (!StringUtil.isNullOrEmpty(contreport)) {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tel));
+    private SelectTelPopWindow telphonePop;
+    private String tmpTel = "";
+    private void showTel(String cover, String tel, String nickname,String company) {
+        tmpTel = tel;
+        telphonePop = new SelectTelPopWindow(DetailRecordActivity.this, itemsOnClick, nickname, company, cover);
+        telphonePop.showAtLocation(this.findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+    }
+    private View.OnClickListener itemsOnClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            telphonePop.dismiss();
+            switch (v.getId()) {
+                case R.id.btn_sure: {
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tmpTel));
                     startActivity(intent);
                 }
-                picAddDialog.dismiss();
+                break;
+                case R.id.btn_cancel: {}
+                break;
+                default:
+                    break;
             }
-        });
-
-        //取消
-        TextView btn_cancel = (TextView) picAddInflate.findViewById(R.id.btn_cancel);
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                picAddDialog.dismiss();
-            }
-        });
-        picAddDialog.setContentView(picAddInflate);
-        picAddDialog.show();
-    }
+        }
+    };
 
     // 举报
     private void showJubao() {

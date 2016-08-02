@@ -160,5 +160,6 @@
     <color name="btn_green_press">#0c9d0b</color>
 
     <color name="mine_bg_color">#c6c5c5</color>
+    <color name="bg_bantouming">#9f364653</color>
 
 </resources>

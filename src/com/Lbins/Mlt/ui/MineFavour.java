@@ -17,6 +17,7 @@ import com.Lbins.Mlt.data.RecordDataSingle;
 import com.Lbins.Mlt.module.Favour;
 import com.Lbins.Mlt.util.StringUtil;
 import com.Lbins.Mlt.widget.SelectDelPop;
+import com.Lbins.Mlt.widget.SelectTelPopWindow;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -92,13 +93,13 @@ public class MineFavour extends BaseActivity implements View.OnClickListener, On
 
     // 选择相册，相机
     private void showSelectImageDialog() {
-        selectPhoPop = new SelectDelPop(MineFavour.this, itemsOnClick);
+        selectPhoPop = new SelectDelPop(MineFavour.this, itemsOnClickPic);
         //显示窗口
         selectPhoPop.showAtLocation(MineFavour.this.findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
     }
 
     //为弹出窗口实现监听类
-    private View.OnClickListener itemsOnClick = new View.OnClickListener() {
+    private View.OnClickListener itemsOnClickPic = new View.OnClickListener() {
         public void onClick(View v) {
             selectPhoPop.dismiss();
             switch (v.getId()) {
@@ -212,7 +213,7 @@ public class MineFavour extends BaseActivity implements View.OnClickListener, On
                 //电话
                 recordVO = lists.get(position);
                 if (recordVO != null && !StringUtil.isNullOrEmpty(recordVO.getMm_emp_mobile())) {
-                    showTel(recordVO.getMm_emp_mobile(), recordVO.getMm_emp_nickname());
+                    showTel(recordVO.getMm_emp_cover(), recordVO.getMm_emp_mobile(), recordVO.getMm_emp_nickname(), recordVO.getMm_emp_company());
                 } else {
                     //
                     Toast.makeText(MineFavour.this, R.string.no_tel, Toast.LENGTH_SHORT).show();
@@ -281,36 +282,29 @@ public class MineFavour extends BaseActivity implements View.OnClickListener, On
     }
 
 
-    // 拨打电话窗口
-    private void showTel(final String tel, String name) {
-        final Dialog picAddDialog = new Dialog(MineFavour.this, R.style.dialog);
-        View picAddInflate = View.inflate(MineFavour.this, R.layout.tel_dialog, null);
-        TextView btn_sure = (TextView) picAddInflate.findViewById(R.id.btn_sure);
-        final TextView jubao_cont = (TextView) picAddInflate.findViewById(R.id.jubao_cont);
-        jubao_cont.setText(tel + " " + name);
-        //提交
-        btn_sure.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String contreport = jubao_cont.getText().toString();
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tel));
-                startActivity(intent);
-                picAddDialog.dismiss();
-            }
-        });
-
-        //取消
-        TextView btn_cancel = (TextView) picAddInflate.findViewById(R.id.btn_cancel);
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                picAddDialog.dismiss();
-            }
-        });
-        picAddDialog.setContentView(picAddInflate);
-        picAddDialog.show();
+    private SelectTelPopWindow telphonePop;
+    private String tmpTel = "";
+    private void showTel(String cover, String tel, String nickname,String company) {
+        tmpTel = tel;
+        telphonePop = new SelectTelPopWindow(MineFavour.this, itemsOnClick, nickname, company, cover);
+        telphonePop.showAtLocation(this.findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
     }
+    private View.OnClickListener itemsOnClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            telphonePop.dismiss();
+            switch (v.getId()) {
+                case R.id.btn_sure: {
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tmpTel));
+                    startActivity(intent);
+                }
+                break;
+                case R.id.btn_cancel: {}
+                break;
+                default:
+                    break;
+            }
+        }
+    };
 
 
     void getRecord(final String mm_msg_id) {

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:clickable="true"
+              android:layout_gravity="center"
+              android:orientation="vertical">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@null"
+                    android:layout_height="wrap_content">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@color/bg_bantouming"
+                    android:layout_marginTop="28dp"
+                    android:layout_height="wrap_content">
+        <TextView android:layout_width="match_parent"
+                  android:text="这里是内容"
+                  android:gravity="center"
+                  android:padding="8dp"
+                  android:layout_marginTop="35dp"
+                  android:id="@+id/item_msg"
+                  android:textSize="18sp"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"
+                  ></TextView>
+        <LinearLayout android:layout_width="match_parent"
+                      android:padding="15dp"
+                      android:layout_below="@+id/item_msg"
+                      android:orientation="horizontal"
+                      android:gravity="center"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="0dp"
+                      android:text="拨号"
+                      android:layout_weight="1"
+                      android:id="@+id/btn_sure"
+                      android:drawableRight="@drawable/tel_one"
+                      android:padding="8dp"
+                      android:gravity="center"
+                      android:layout_marginRight="20dp"
+                      android:textSize="18sp"
+                      android:textColor="@color/white"
+                      android:background="@drawable/btn_green_shape"
+                      android:layout_height="wrap_content"></TextView>
+            <TextView android:layout_width="0dp"
+                      android:text="取消"
+                      android:layout_weight="1"
+                      android:id="@+id/btn_cancel"
+                      android:drawableLeft="@drawable/tel_two"
+                      android:padding="8dp"
+                      android:gravity="center"
+                      android:textSize="18sp"
+                      android:textColor="@color/white"
+                      android:background="@drawable/btn_radio_red_shape_center"
+                      android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+
+    </RelativeLayout>
+        <com.Lbins.Mlt.widget.CircleImageView
+                android:layout_width="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="60dp"
+                android:id="@+id/item_cover"
+                android:src="@drawable/default_avatar"
+                android:layout_height="55dp"/>
+    </RelativeLayout>
+</LinearLayout>
