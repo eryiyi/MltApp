@@ -71,7 +71,7 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
     private static boolean IS_REFRESH = true;
 
     private ImageView no_data;
-    private EditText keyword;
+//    private EditText keyword;
 
     String countryId; //选择的县区
     private TextView mLocation;
@@ -116,7 +116,7 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
 //        search_liner.setVisibility(View.GONE);
         mLocation = (TextView) view.findViewById(R.id.mLocation);
         mLocation.setOnClickListener(this);
-        view.findViewById(R.id.add).setOnClickListener(this);
+        view.findViewById(R.id.btn_add).setOnClickListener(this);
         no_data = (ImageView) view.findViewById(R.id.no_data);
         lstv = (PullToRefreshListView) view.findViewById(R.id.lstv);
         ListView listView = lstv.getRefreshableView();
@@ -173,8 +173,8 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
         });
         adapter.setOnClickContentItemListener(this);
 
-        keyword = (EditText) view.findViewById(R.id.keyword);
-        keyword.addTextChangedListener(watcher);
+//        keyword = (EditText) view.findViewById(R.id.keyword);
+//        keyword.addTextChangedListener(watcher);
         no_data.setOnClickListener(this);
     }
 
@@ -437,9 +437,9 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
                 } else {
                     params.put("accessToken", "");
                 }
-                if (!StringUtil.isNullOrEmpty(keyword.getText().toString())) {
-                    params.put("keyword", keyword.getText().toString());
-                }
+//                if (!StringUtil.isNullOrEmpty(keyword.getText().toString())) {
+//                    params.put("keyword", keyword.getText().toString());
+//                }
                 //当前登陆者的等级vip 0  -- 4
                 if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_level_num", ""), String.class))) {
                     params.put("mm_level_num", getGson().fromJson(getSp().getString("mm_level_num", ""), String.class));
@@ -511,7 +511,7 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
                     showLogin();
                 }
                 break;
-            case R.id.add: {
+            case R.id.btn_add: {
                 //发布信息
                 if ((StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("isLogin", ""), String.class)) || "0".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class)))) {
                     //未登录
