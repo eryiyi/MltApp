@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_bg"
+              android:orientation="vertical">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="注册协议"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_height="match_parent">
+        <com.Lbins.Mlt.widget.MyTextView2
+                android:id="@+id/view"
+                android:padding="6dp"
+                android:lineSpacingMultiplier="1.5"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="名片分享"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <ImageView android:layout_width="match_parent"
+               android:src="@drawable/ad_mp"
+               android:id="@+id/ad_pic"
+               android:layout_height="wrap_content"/>
+
+    <Button android:layout_width="match_parent"
+            android:padding="12dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="点此分享"
+            android:onClick="sureShare"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/btn_green_shape"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

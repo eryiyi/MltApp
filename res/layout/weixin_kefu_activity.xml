@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="微信客服"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="3dp"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginRight="15dp"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="微信名"
+                  android:layout_marginRight="8dp"
+                  android:textColor="@color/white"
+                  android:padding="6dp"
+                  android:background="@drawable/btn_green_shape"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_marginLeft="8dp"
+                  android:textColor="@color/white"
+                  android:padding="6dp"
+                  android:background="@drawable/btn_green_shape"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:text="微信号"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_weight="1"
+
+                    android:layout_height="0dp">
+        <ListView
+                android:id="@+id/lstv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@drawable/home_item_shadow"
+                android:dividerHeight="0.5dp"
+                android:fadingEdge="none"
+                android:fastScrollEnabled="false"
+                android:padding="8dp"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false"
+                android:smoothScrollbar="true"/>
+
+    </RelativeLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginTop="3dp"
+                  android:layout_marginRight="15dp"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:background="@drawable/btn_green_shape"
+                  android:text="QQ昵称"
+                  android:layout_marginRight="8dp"
+                  android:textColor="@color/white"
+                  android:padding="6dp"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_marginLeft="8dp"
+                  android:textColor="@color/white"
+                  android:padding="6dp"
+                  android:layout_gravity="center"
+                  android:background="@drawable/btn_green_shape"
+                  android:gravity="center"
+                  android:text="QQ号"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp">
+        <ListView
+                android:id="@+id/lstvQ"
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@drawable/home_item_shadow"
+                android:dividerHeight="0.5dp"
+                />
+    </RelativeLayout>
+
+    <TextView android:layout_width="wrap_content"
+              android:text="*长按微信号可以复制  *点击QQ号码就能聊天"
+              android:textColor="@color/red"
+              android:textSize="16dp"
+              android:layout_marginLeft="25dp"
+              android:padding="2dp"
+              android:layout_alignParentBottom="true"
+              android:layout_height="wrap_content"/>
+</LinearLayout>

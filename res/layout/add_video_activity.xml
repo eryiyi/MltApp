@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="拍摄视频"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <com.Lbins.Mlt.widget.MovieRecorderView
+            android:id="@+id/movieRecorderView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="3dp" />
+
+    <ImageView
+            android:id="@+id/shoot_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/record_controller_seletor"
+            android:textColor="#20b6ff"/>
+</LinearLayout>

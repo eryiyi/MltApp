@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="修改密码"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <EditText android:layout_width="match_parent"
+              android:layout_marginLeft="25dp"
+              android:layout_marginRight="25dp"
+              android:layout_marginTop="12dp"
+              android:paddingLeft="15dp"
+              android:drawablePadding="8dp"
+              android:textSize="14sp"
+              android:singleLine="true"
+              android:id="@+id/yuanshipwr"
+              android:password="true"
+              android:hint="原始密码"
+              android:drawableLeft="@drawable/login_pwr"
+              android:background="@drawable/login_edit_bg"
+              android:layout_height="wrap_content">
+    </EditText>
+    <EditText android:layout_width="match_parent"
+              android:layout_marginLeft="25dp"
+              android:layout_marginRight="25dp"
+              android:layout_marginTop="12dp"
+              android:paddingLeft="15dp"
+              android:drawablePadding="8dp"
+              android:textSize="14sp"
+              android:id="@+id/password"
+              android:hint="密码"
+              android:password="true"
+              android:drawableLeft="@drawable/login_pwr"
+              android:background="@drawable/login_edit_bg"
+              android:layout_height="wrap_content">
+    </EditText>
+    <EditText android:layout_width="match_parent"
+              android:layout_marginLeft="25dp"
+              android:layout_marginRight="25dp"
+              android:layout_marginTop="12dp"
+              android:paddingLeft="15dp"
+              android:drawablePadding="8dp"
+              android:textSize="14sp"
+              android:id="@+id/surepass"
+              android:hint="确认密码"
+              android:password="true"
+              android:drawableLeft="@drawable/login_pwr"
+              android:background="@drawable/login_edit_bg"
+              android:layout_height="wrap_content">
+    </EditText>
+
+
+    <Button android:layout_width="match_parent"
+            android:padding="12dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="确  定"
+            android:id="@+id/btn"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/btn_green_shape"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

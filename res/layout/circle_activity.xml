@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="金牌榜"
+                  android:id="@+id/title"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+
+
+    <View android:layout_width="match_parent"
+          android:layout_alignTop="@+id/home_item_photo"
+          android:background="@color/gray_line_color"
+          android:layout_height="0.5dp"></View>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+        <ImageView android:layout_width="wrap_content"
+                   android:src="@drawable/no_data"
+                   android:layout_centerVertical="true"
+                   android:layout_centerHorizontal="true"
+                   android:id="@+id/no_data"
+                   android:layout_centerInParent="true"
+                   android:layout_height="wrap_content"/>
+        <com.Lbins.Mlt.library.internal.PullToRefreshListView
+                android:id="@+id/lstv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="@drawable/home_item_shadow"
+                android:dividerHeight="1dp"
+                android:fadingEdge="none"
+                android:fastScrollEnabled="false"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false"
+                android:smoothScrollbar="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="发布信息"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="拍摄视频"
+                  android:visibility="gone"
+                  android:id="@+id/btn_video"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:textStyle="bold"
+                  android:layout_marginRight="6dp"
+                  android:padding="8dp"
+                  android:layout_alignParentRight="true"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <com.Lbins.Mlt.widget.ReboundScrollView android:layout_width="match_parent"
+                                               android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:padding="15dp"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="发布类型:"
+                          android:layout_marginTop="10dp"
+                          android:textSize="16sp"
+                          android:textColor="@color/text_color"
+                          android:layout_height="wrap_content"/>
+                <com.Lbins.Mlt.widget.CustomerSpinner
+                        android:background="@drawable/login_edit_bg"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="15dp"
+                        android:id="@+id/mm_msg_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                </com.Lbins.Mlt.widget.CustomerSpinner>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content"
+                      android:text="信息标题:"
+                      android:visibility="gone"
+                      android:layout_marginLeft="15dp"
+                      android:layout_marginTop="10dp"
+                      android:textSize="16sp"
+                      android:textColor="@color/text_color"
+                      android:layout_height="wrap_content"/>
+            <EditText
+                    android:id="@+id/mm_msg_title"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="200dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/et_bule_bg"
+                    android:textSize="16sp"
+                    android:gravity="top"
+                    android:hint="点击输入信息标题，100字以内"
+                    android:padding="10dp"
+                    android:textColor="#ff000000"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:text="信息描述:"
+                      android:layout_marginLeft="15dp"
+                      android:layout_marginTop="15dp"
+                      android:textSize="16sp"
+                      android:textColor="@color/text_color"
+                      android:layout_height="wrap_content"/>
+            <EditText
+                    android:id="@+id/mm_msg_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="120dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/et_bule_bg"
+                    android:textSize="16sp"
+                    android:gravity="top"
+                    android:hint="@string/add_msg"
+                    android:padding="10dp"
+                    android:textColor="#ff000000"/>
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_height="wrap_content">
+                <ImageView android:layout_width="75dp"
+                           android:id="@+id/add_video"
+                           android:visibility="gone"
+                           android:layout_marginTop="8dp"
+                           android:src="@drawable/addvideo_button_pressed"
+                           android:layout_height="75dp"/>
+                <com.Lbins.Mlt.widget.NoScrollGridView
+                        android:id="@+id/publish_moopd_gridview_image"
+                        android:layout_width="match_parent"
+                        android:layout_toRightOf="@+id/add_video"
+                        android:layout_height="wrap_content"
+                        android:listSelector="@drawable/selector_pressed_gray"
+                        android:horizontalSpacing="5dip"
+                        android:numColumns="4"
+                        android:padding="8dp"
+                        android:verticalSpacing="5dip"/>
+            </RelativeLayout>
+
+
+            <Button android:layout_width="match_parent"
+                    android:padding="12dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="提交发布"
+                    android:id="@+id/btn"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_green_shape"
+                    android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:padding="12dp"
+                      android:id="@+id/btn_kf"
+                      android:layout_marginTop="20dp"
+                      android:paddingBottom="8dp"
+                      android:layout_gravity="center"
+                      android:gravity="center"
+                      android:textSize="16sp"
+                      android:textColor="@color/white"
+                      android:text="@string/center_kefu"
+                      android:layout_marginLeft="30dp"
+                      android:layout_marginRight="30dp"
+                      android:background="@drawable/btn_green_shape"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </com.Lbins.Mlt.widget.ReboundScrollView>
+
+</LinearLayout>

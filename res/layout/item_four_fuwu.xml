@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@drawable/zhuye_item_select"
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_height="match_parent">
+
+    <ImageView android:layout_width="60dp"
+               android:src="@drawable/default_avatar"
+               android:id="@+id/head"
+               android:layout_height="60dp"/>
+    <TextView android:layout_width="wrap_content"
+              android:textSize="16sp"
+              android:layout_marginRight="80dp"
+              android:id="@+id/title"
+              android:layout_toRightOf="@+id/head"
+              android:text="名称"
+              android:textColor="@color/text_color"
+              android:layout_marginLeft="8dp"
+              android:layout_marginTop="8dp"
+              android:layout_height="wrap_content"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:id="@+id/distance"
+              android:layout_below="@+id/title"
+              android:textSize="14sp"
+              android:layout_marginLeft="8dp"
+              android:layout_marginTop="5dp"
+              android:layout_toRightOf="@+id/head"
+              android:text="距离：110KM"
+              android:textColor="@color/text_color"
+              android:layout_height="wrap_content"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:textSize="15sp"
+              android:text="内容：26543131"
+              android:layout_below="@+id/head"
+              android:layout_marginTop="6dp"
+              android:id="@+id/address"
+              android:textColor="@color/text_color"
+              android:layout_height="wrap_content"/>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_below="@+id/address"
+                  android:orientation="horizontal"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:textSize="15sp"
+                  android:layout_marginLeft="6dp"
+                  android:gravity="center"
+                  android:text="电话"
+                  android:layout_marginTop="8dp"
+                  android:id="@+id/tel"
+                  android:background="@drawable/button_selector_detail_tel"
+                  android:textColor="@color/white"
+                  android:layout_height="40dp"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:textSize="15sp"
+                  android:layout_marginLeft="6dp"
+                  android:gravity="center"
+                  android:text="微网站"
+                  android:layout_marginTop="8dp"
+                  android:id="@+id/weiwangzhan"
+                  android:background="@drawable/button_selector_detail_tel"
+                  android:textColor="@color/white"
+                  android:layout_height="40dp"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:textSize="15sp"
+                  android:layout_marginLeft="6dp"
+                  android:gravity="center"
+                  android:text="导航"
+                  android:layout_marginTop="8dp"
+                  android:id="@+id/navi"
+                  android:background="@drawable/button_selector_detail_tel"
+                  android:textColor="@color/white"
+                  android:layout_height="40dp"/>
+    </LinearLayout>
+
+    <!--<TextView android:layout_width="wrap_content"-->
+    <!--android:text="主营：沙龙封口胶奥拉夫"-->
+    <!--android:textSize="16sp"-->
+    <!--android:layout_marginTop="12dp"-->
+    <!--android:layout_below="@+id/tel"-->
+    <!--android:layout_marginLeft="8dp"-->
+    <!--android:id="@+id/content"-->
+    <!--android:visibility="gone"-->
+    <!--android:textColor="@color/text_color"-->
+    <!--android:layout_height="wrap_content"/>-->
+</RelativeLayout>

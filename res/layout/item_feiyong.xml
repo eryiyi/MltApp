@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:padding="8dp"
+              android:background="@drawable/zhuye_item_select"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView android:layout_width="30dp"
+               android:id="@+id/item_cart_select"
+               android:layout_marginTop="6dp"
+               android:layout_marginLeft="10dp"
+               android:src="@drawable/selector_fill"
+               android:layout_height="30dp"/>
+    <TextView android:layout_width="wrap_content"
+              android:text="vip1年"
+              android:textSize="18sp"
+              android:layout_marginLeft="8dp"
+              android:id="@+id/title"
+              android:layout_weight="1"
+              android:textColor="#f69700"
+              android:padding="8dp"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="100dp"
+              android:text="$800"
+              android:gravity="center"
+              android:textSize="16sp"
+              android:id="@+id/price"
+              android:textColor="#ff525c"
+              android:padding="8dp"
+              android:layout_height="wrap_content"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:text="详情"
+              android:layout_marginRight="6dp"
+              android:textColor="@color/white"
+              android:padding="6dp"
+              android:id="@+id/btn_detail"
+              android:textSize="14sp"
+              android:background="@drawable/btn_orange_shape"
+              android:layout_height="wrap_content"/>
+</LinearLayout>

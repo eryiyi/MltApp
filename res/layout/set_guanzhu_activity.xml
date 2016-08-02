@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="设置关注区域"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <com.Lbins.Mlt.widget.ReboundScrollView android:layout_width="match_parent"
+                                               android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
+            <TextView android:layout_width="match_parent"
+                      android:padding="8dp"
+                      android:layout_marginLeft="25dp"
+                      android:textSize="14sp"
+                      android:textColor="@color/red"
+                      android:text="*选择省市县然后点击'添加'按钮，可选择多个地区！"
+                      android:layout_height="wrap_content"/>
+
+            <com.Lbins.Mlt.widget.CustomerSpinner
+                    android:background="@drawable/login_edit_bg"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:paddingLeft="15dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/mm_emp_provinceId"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+            </com.Lbins.Mlt.widget.CustomerSpinner>
+            <com.Lbins.Mlt.widget.CustomerSpinner
+                    android:background="@drawable/login_edit_bg"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="15dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/mm_emp_cityId"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+            </com.Lbins.Mlt.widget.CustomerSpinner>
+            <com.Lbins.Mlt.widget.CustomerSpinner
+                    android:background="@drawable/login_edit_bg"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="15dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/mm_emp_countryId"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+            </com.Lbins.Mlt.widget.CustomerSpinner>
+
+            <Button android:layout_width="match_parent"
+                    android:text="添加"
+                    android:padding="12dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:id="@+id/addBtn"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_green_shape"
+                    android:layout_height="wrap_content"/>
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_marginLeft="25dp"
+                      android:layout_marginRight="25dp"
+                      android:singleLine="true"
+                      android:layout_marginTop="8dp"
+                      android:paddingLeft="15dp"
+                      android:gravity="center_vertical"
+                      android:id="@+id/quyu"
+                      android:drawablePadding="8dp"
+                      android:textSize="14sp"
+                      android:background="@drawable/login_edit_bg"
+                      android:layout_height="wrap_content">
+            </TextView>
+
+            <Button android:layout_width="match_parent"
+                    android:padding="12dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="提交审核"
+                    android:id="@+id/btn"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_green_shape"
+                    android:layout_height="wrap_content"/>
+            <TextView android:layout_width="match_parent"
+                      android:padding="8dp"
+                      android:layout_marginLeft="25dp"
+                      android:textSize="14sp"
+                      android:lineSpacingMultiplier="1.2"
+                      android:textColor="@color/red"
+                      android:text="*1.关注区域只能设置一次，请谨慎！\n  2.提交申请后，由后台管理员进行审核，您可以联系客服查询进度！"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </com.Lbins.Mlt.widget.ReboundScrollView>
+
+</LinearLayout>

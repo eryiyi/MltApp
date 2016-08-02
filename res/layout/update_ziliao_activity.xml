@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="补充资料"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <com.Lbins.Mlt.widget.ReboundScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="vertical"
+                          android:layout_height="wrap_content">
+
+                <View android:layout_width="match_parent"
+                      android:layout_marginTop="12dp"
+                      android:background="@color/gray_line_color"
+                      android:layout_height="0.5dp">
+
+                </View>
+
+
+                <EditText android:layout_width="match_parent"
+                          android:layout_marginLeft="25dp"
+                          android:layout_marginRight="25dp"
+                          android:singleLine="true"
+                          android:layout_marginTop="8dp"
+                          android:paddingLeft="15dp"
+                          android:maxLength="18"
+                          android:id="@+id/mm_emp_card"
+                          android:drawablePadding="8dp"
+                          android:textSize="14sp"
+                          android:hint="身份证号"
+                          android:drawableLeft="@drawable/login_user"
+                          android:background="@drawable/login_edit_bg"
+                          android:layout_height="wrap_content">
+                </EditText>
+                <!--<CustomerSpinner-->
+                <!--android:background="@drawable/login_edit_bg"-->
+                <!--android:layout_marginLeft="25dp"-->
+                <!--android:layout_marginRight="25dp"-->
+                <!--android:paddingLeft="15dp"-->
+                <!---->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:id="@+id/mm_emp_type"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--</CustomerSpinner>-->
+
+                <EditText android:layout_width="match_parent"
+                          android:layout_marginLeft="25dp"
+                          android:layout_marginRight="25dp"
+                          android:singleLine="true"
+                          android:layout_marginTop="8dp"
+                          android:paddingLeft="15dp"
+                          android:id="@+id/mm_emp_company"
+                          android:drawablePadding="8dp"
+                          android:textSize="14sp"
+                          android:hint="公司名称"
+                          android:drawableLeft="@drawable/login_user"
+                          android:background="@drawable/login_edit_bg"
+                          android:layout_height="wrap_content">
+                </EditText>
+
+                <EditText android:layout_width="match_parent"
+                          android:layout_marginLeft="25dp"
+                          android:layout_marginRight="25dp"
+                          android:singleLine="true"
+                          android:layout_marginTop="8dp"
+                          android:paddingLeft="15dp"
+                          android:id="@+id/mm_emp_company_address"
+                          android:drawablePadding="8dp"
+                          android:textSize="14sp"
+                          android:hint="公司地址"
+                          android:drawableLeft="@drawable/login_user"
+                          android:background="@drawable/login_edit_bg"
+                          android:layout_height="wrap_content">
+                </EditText>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="horizontal"
+                              android:layout_marginTop="15dp"
+                              android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_weight="1"
+                               android:id="@+id/pic_one"
+                               android:layout_marginLeft="25dp"
+                               android:src="@drawable/addphoto_button_pressed"
+                               android:layout_height="50dp"/>
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_marginLeft="25dp"
+                               android:layout_weight="1"
+                               android:id="@+id/pic_two"
+                               android:src="@drawable/addphoto_button_pressed"
+                               android:layout_height="50dp"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="horizontal"
+                              android:layout_height="wrap_content">
+                    <TextView android:layout_width="0dp"
+                              android:text="请上传法人照片"
+                              android:padding="8dp"
+                              android:textSize="14sp"
+                              android:id="@+id/btn_one"
+                              android:textColor="@color/mm_btn_bg"
+                              android:gravity="center"
+                              android:layout_weight="1"
+                              android:layout_height="wrap_content"/>
+                    <TextView android:layout_width="0dp"
+                              android:text="请上传营业执照或公司门头照片"
+                              android:gravity="center"
+                              android:padding="8dp"
+                              android:textSize="14sp"
+                              android:id="@+id/btn_two"
+                              android:textColor="@color/mm_btn_bg"
+                              android:layout_weight="1"
+                              android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <Button android:layout_width="match_parent"
+                        android:padding="12dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="确认提交"
+                        android:id="@+id/btn"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:background="@drawable/btn_green_shape"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.Lbins.Mlt.widget.ReboundScrollView>
+
+</LinearLayout>

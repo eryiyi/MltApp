@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="设置"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <com.Lbins.Mlt.widget.ReboundScrollView android:layout_width="match_parent"
+                                               android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:padding="15dp"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="字体大小"
+                          android:id="@+id/fontsize_text"
+                          android:layout_marginTop="15dp"
+                          android:layout_weight="1"
+                          android:textColor="@color/text_color"
+                          android:textSize="16sp"
+                          android:layout_height="wrap_content"/>
+                <com.Lbins.Mlt.widget.CustomerSpinner
+                        android:layout_marginLeft="25dp"
+                        android:paddingLeft="15dp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/textSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </com.Lbins.Mlt.widget.CustomerSpinner>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_marginLeft="8dp"
+                  android:layout_marginRight="8dp"
+                  android:background="@color/orange_color"
+                  android:layout_height="0.5dp"></View>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:padding="15dp"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="字体颜色"
+                          android:id="@+id/fontcolor_text"
+                          android:layout_marginTop="8dp"
+                          android:layout_weight="1"
+                          android:textColor="@color/text_color"
+                          android:textSize="16sp"
+                          android:layout_height="wrap_content"/>
+                <com.Lbins.Mlt.widget.CustomerSpinner
+                        android:layout_marginLeft="25dp"
+                        android:paddingLeft="15dp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/textColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </com.Lbins.Mlt.widget.CustomerSpinner>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_marginLeft="8dp"
+                  android:layout_marginRight="8dp"
+                  android:background="@color/orange_color"
+                  android:layout_height="0.5dp"></View>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:padding="15dp"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="更新版本"
+                          android:layout_marginTop="8dp"
+                          android:layout_weight="1"
+                          android:textColor="@color/text_color"
+                          android:textSize="16sp"
+                          android:id="@+id/check_version"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_marginLeft="8dp"
+                  android:layout_marginRight="8dp"
+                  android:background="@color/orange_color"
+                  android:layout_height="0.5dp"></View>
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:padding="15dp"
+                          android:visibility="gone"
+                          android:id="@+id/switch_shengyin_liner"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="来消息声音"
+                          android:layout_weight="1"
+                          android:textColor="@color/text_color"
+                          android:textSize="16sp"
+                          android:layout_height="wrap_content"/>
+                <ImageView android:layout_width="wrap_content"
+                           android:id="@+id/switch_shengyin"
+                           android:src="@drawable/switch_open"
+                           android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:padding="15dp"
+                          android:visibility="gone"
+                          android:id="@+id/switch_zhendong_liner"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="来消息震动"
+                          android:layout_weight="1"
+                          android:textColor="@color/text_color"
+                          android:textSize="16sp"
+                          android:layout_height="wrap_content"/>
+                <ImageView android:layout_width="wrap_content"
+                           android:src="@drawable/switch_open"
+                           android:id="@+id/switch_zhendong"
+                           android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_marginLeft="8dp"
+                  android:layout_marginRight="8dp"
+                  android:background="@color/orange_color"
+                  android:layout_height="0.5dp"></View>
+
+
+            <Button android:layout_width="match_parent"
+                    android:padding="12dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="退  出"
+                    android:onClick="surequite"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_green_shape"
+                    android:layout_height="wrap_content"/>
+
+            <TextView android:layout_width="match_parent"
+                      android:padding="12dp"
+                      android:id="@+id/btn_kf"
+                      android:layout_marginTop="25dp"
+                      android:paddingBottom="8dp"
+                      android:layout_gravity="center"
+                      android:gravity="center"
+                      android:textSize="16sp"
+                      android:textColor="@color/white"
+                      android:text="客服咨询中心"
+                      android:layout_marginLeft="30dp"
+                      android:layout_marginRight="30dp"
+                      android:background="@drawable/btn_green_shape"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </com.Lbins.Mlt.widget.ReboundScrollView>
+
+</LinearLayout>

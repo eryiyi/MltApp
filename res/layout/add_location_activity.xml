@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:text="@string/back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="上传公司坐标"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:padding="8dp"
+                  android:layout_height="match_parent">
+        <TextView android:layout_width="wrap_content"
+                  android:padding="8dp"
+                  android:id="@+id/location"
+                  android:textColor="@color/text_color"
+                  android:textSize="16sp"
+                  android:layout_height="wrap_content"/>
+
+        <Button android:layout_width="match_parent"
+                android:padding="12dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="点击上传坐标"
+                android:onClick="sureLocation"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/btn_green_shape"
+                android:layout_height="wrap_content"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:textColor="@color/red"
+                  android:lineSpacingMultiplier="1.4"
+                  android:textSize="16sp"
+                  android:text="*上传公司坐标，客户点击导航就能找到公司;\n*请确认您当前位置是公司所在地"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

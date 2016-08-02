@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">苗连通</string>
+
+    <string name="back">返回</string>
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">松开可以刷新</string>
+    <string name="lastUpdateTime">最近更新：%s</string>
+    <string name="load_full">已加载全部</string>
+    <string name="more">加载中</string>
+    <string name="is_dengluing">正在登陆...</string>
+    <string name="check_new_version">检查中...</string>
+    <string name="pull_to_refresh_pull_label" translatable="false">向下拉动可以刷新</string>
+    <string name="pull_to_refresh_release_label" translatable="false">松开可以刷新</string>
+    <string name="pull_to_refresh_refreshing_label" translatable="false">加载中&#8230;</string>
+    <string name="pull_to_refresh_tap_label" translatable="false">点击刷新</string>
+
+    <string name="report_answer">"请简要描述举报原因"</string>
+    <string name="kefu_tel">"13181038186"</string>
+    <string name="get_cart_error">"获得验证码失败"</string>
+    <string name="daojishi_one">"倒计时"</string>
+    <string name="daojishi_two">"秒"</string>
+    <string name="daojishi_three">"重新获取"</string>
+    <string name="please_wait">"请稍后"</string>
+    <string name="reg_error_one">"注册失败"</string>
+    <string name="caozuo_success">"操作成功！"</string>
+    <string name="caozuo_error_one">"操作失败，请稍后重试！"</string>
+    <string name="reg_error_two">"该手机号已经注册，请直接登录"</string>
+
+    <string name="select_city">请选择城市</string>
+    <string name="select_area">请选择县区</string>
+
+    <string name="get_data_error">获得数据失败</string>
+    <string name="album_all">All Photos</string>
+    <string name="add_record_error_one">"发布信息失败"</string>
+    <string name="no_data">暂无数据</string>
+    <string name="login_out">您的账号在其它设备上登录，请重新登录！</string>
+    <string name="report_error_one">举报失败，请稍后重试！</string>
+    <string name="version_name">"检查版本"</string>
+    <string name="can_not_find_version_name">"没有最新版本信息"</string>
+    <string name="favour_success">"收藏成功"</string>
+    <string name="favour_error_one">"已经收藏，不能重复收藏"</string>
+    <string name="no_favour">"收藏失败"</string>
+
+    <string name="publish_error_one">"发布失败"</string>
+    <string name="publish_error_two">"网络异常，稍后重试"</string>
+    <string name="please_reg_or_login">请先注册或联系管理员</string>
+    <string name="update_profile_msg">您的个人信息不完整，请先补充资料！</string>
+    <string name="notice">提示</string>
+
+    <string-array name="main_menu_arry">
+        <item>发布信息</item>
+        <item>查看关注区域信息</item>
+    </string-array>
+
+    <string name="pwr_error_one">原始密码输入错误，请确认！</string>
+    <string name="pwr_error_two">请输入原始密码</string>
+    <string name="pwr_error_three">请输入密码</string>
+    <string name="pwr_error_four">密码长度在6到18位之间</string>
+    <string name="pwr_error_five">请输入确认密码</string>
+    <string name="pwr_error_six">两次输入密码不一致</string>
+    <string name="pwr_error_seven">请输入手机号码</string>
+    <string name="pwr_error_eight">请输入验证码</string>
+    <string name="pwr_success_one">修改密码成功</string>
+    <string name="pwr_error_nine">修改密码失败，请稍后重试</string>
+    <string name="code_msg_one">验证码已经发送</string>
+    <string name="code_msg_two">验证码错误</string>
+    <string name="reg_msg_one">请勾选注册协议！</string>
+    <string name="reg_msg_two">该手机号已经注册，请直接登录</string>
+    <string name="reg_msg_three">注册失败，请稍后重试</string>
+    <string name="reg_msg_four">注册成功，请登录</string>
+    <string name="select_province">请选择省份</string>
+    <string name="input_name">请输入姓名</string>
+    <string name="input_name_one">姓名字段超出限制！最多三个字</string>
+    <string name="please_select_msg_type">请选择信息类型</string>
+    <string name="type_qiugou">苗木求购</string>
+    <string name="type_gongying">苗木供应</string>
+    <string name="net_work_error">当前网络连接不可用</string>
+    <string name="add_error_one">您暂无权限发布苗木供应信息，请联系客服！</string>
+    <string name="add_error_two">您暂无权限发布苗木求购信息，请联系客服！</string>
+    <string name="add_error_three">请选择信息类型</string>
+    <string name="please_input_text">请输入内容</string>
+    <string name="add_error_four">内容超出字数限制</string>
+    <string name="add_error_five">您暂无权限发布图片，请联系客服！</string>
+    <string name="add_error_video">您暂无权限发布视频，请联系客服！</string>
+    <string name="add_error_six">您可以发布3张图片，请联系客服！</string>
+    <string name="add_error_seven">您可以发布6张图片，请联系客服！</string>
+    <string name="add_error_eight">您可以发布9张图片，请联系客服！</string>
+    <string name="add_error_nine">您每天最多发布</string>
+    <string name="add_error_ten">条信息</string>
+    <string name="add_video_error">请先拍摄视频！</string>
+    <string name="suggest_add_one">感谢您的参与</string>
+    <string name="suggest_add_two">提交失败</string>
+    <string name="miaomushop">园林资材</string>
+    <string name="zhuangchework">装车工人</string>
+    <string name="wuliucenter">物流中心</string>
+    <string name="jiajieteam">嫁接团队</string>
+    <string name="diaocheservie">吊车服务</string>
+    <string name="zanwu_www">暂无微网站，请联系管理员在后台设置</string>
+    <string name="yisaveutil">已保存至</string>
+    <string name="location_error_one">定位失败</string>
+    <string name="login_error_one">请检查手机号是否存在</string>
+    <string name="login_error_two">请检查密码是否正确</string>
+    <string name="login_error_three">该用户已被禁用</string>
+    <string name="login_error_four">该用户尚未审核，请联系客服</string>
+    <string name="login_error_seven">请使用注册手机登录，不能更换手机！</string>
+    <string name="login_error">登录失败</string>
+    <string name="reg_error_is_use">该手机号已经注册，请直接登录或者联系管理员修改密码！</string>
+    <string name="select_area_error">您权限不够，不能查看！请前往服务中心升级VIP！</string>
+    <string name="dianjiseeother">点击查看其它区域</string>
+    <string name="no_tel">商户暂无电话</string>
+    <string name="share_success">分享成功啦</string>
+    <string name="share_error">分享失败啦</string>
+    <string name="share_cancel">分享取消了</string>
+    <string name="miaomujingying">苗木经营</string>
+    <string name="miaomuemp">苗木会员</string>
+    <string name="no_open">暂未开通，请等待！</string>
+    <string name="add_record_success">发布成功</string>
+    <string name="add_msg_one">发布信息数量超出限制，您每天最多发布</string>
+    <string name="tiao">条,请联系客服！</string>
+    <string name="recent_pic">最近照片</string>
+    <string name="compleat">完成(</string>
+    <string name="compleat_1">)</string>
+    <string name="only_select_nine">只能选择9张图片</string>
+    <string name="report_success">举报成功，请等待管理员审核！</string>
+    <string name="also_area_please_wait">您已经申请了关注区域！请等待管理员审核</string>
+    <string name="also_area_please_wait1">您申请的关注区域未通过审核，请联系客服！</string>
+    <string name="also_area_please_wait2">您尚未申请关注区域，点此设置关注区域！</string>
+    <string name="select_only_five_area">最多选择5个县区！</string>
+    <string name="no_select_one_area">不能重复选择同一个县区！</string>
+    <string name="select_area_one">请先选择县区！</string>
+    <string name="select_area_guanzhu">请先选择要关注的县区！</string>
+    <string name="sub_success_wait_check">提交申请成功，请等待管理员审核！您可以去客服中心查询进度！</string>
+    <string name="sub_error_check">提交申请失败！不能重复提交申请！请联系客服！</string>
+    <string name="sub_error_one">提交申请失败！请稍后重试！或者联系客服！</string>
+    <string name="font_zhengchang">正常字体</string>
+    <string name="font_small">小号字体</string>
+    <string name="font_zhong">中号字体</string>
+    <string name="font_big">大号字体</string>
+    <string name="font_big_big">超大号字体</string>
+    <string name="black">黑色</string>
+    <string name="gray">灰色</string>
+    <string name="blue">蓝色</string>
+    <string name="orange">橙色</string>
+    <string name="red">红色</string>
+    <string name="new_version_also">已是最新版本</string>
+    <string name="net_pass">连接超时</string>
+    <string name="sure_quite">确定退出苗连通吗？</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="please_input_card">请输入身份证号</string>
+    <string name="please_input_company">请输公司名称</string>
+    <string name="please_input_company_one">公司名称超出字段限制，最多14个字</string>
+    <string name="please_input_company_address_one">公司地址超出字段限制，最多20个字</string>
+    <string name="please_input_company_address">请输公司地址</string>
+    <string name="please_input_company_faren">请选择法人头像</string>
+    <string name="please_input_zhizhao">请选择营业执照</string>
+    <string name="please_select">请先选择</string>
+    <string name="money">￥</string>
+    <string name="no_www">暂无微网站</string>
+    <string name="title_share">苗连通，您身边的苗木信息专家</string>
+    <string name="content_share">最全最新的苗木求购、供应信息，一手掌握！</string>
+    <string name="no_content">暂无公司描述</string>
+    <string name="center_kefu">客服中心</string>
+    <string name="wangzhan">网站</string>
+    <string name="add_msg">请输入您要发布的信息内容，包括您要求的品种、规格、质量及联系方式。您将对您发布信息的真实性负法律责任，请谨慎填写！</string>
+
+
+    <string name="app_id_xunfei">5707245c</string>
+    <string-array name="preference_values_tts_role">z
+        <item>xiaoyan</item>
+        <item>xiaoyu</item>
+        <item>vixy</item>
+        <item>vixq</item>
+        <item>vixf</item>
+        <item>vixm</item>
+        <item>vixl</item>
+        <item>vixr</item>
+        <item>vixyun</item>
+        <item>vixk</item>
+        <item>vixqa</item>
+        <item>vixying</item>
+        <item>vixx</item>
+        <item>vinn</item>
+        <item>vils</item>
+    </string-array>
+
+    <string name="preference_default_tts_role">xiaoyan</string>
+    <string name="preference_key_tts_speed">tts_speed</string>
+    <string name="preference_title_tts_speed">语速</string>
+    <string name="preference_default_tts_speed">50</string>
+    <string name="preference_dialog_title_tts_speed">选择语速</string>
+    <string name="preference_key_tts_volume">tts_volume</string>
+    <string name="preference_title_tts_volume">音量</string>
+    <string name="preference_default_tts_volume">50</string>
+    <string name="preference_dialog_title_tts_volume">选择音量</string>
+    <string name="preference_key_tts_pitch">tts_pitch</string>
+    <string name="preference_title_tts_pitch">语调</string>
+    <string name="preference_default_tts_pitch">50</string>
+    <string name="intell_bd_title">智能播报</string>
+    <string name="no_location_lat_lng">暂无定位信息</string>
+    <string name="please_open_gps">请打开手机GPS，方便我们进行定位导航</string>
+    <string name="order_error_one">订单生成失败</string>
+    <string name="order_success">订单生成成功</string>
+    <string name="order_pay_success">订单支付成功</string>
+    <string name="order_error_two">操作失败，如有疑问，请联系客服</string>
+
+    <string name="errcode_success">发送成功</string>
+    <string name="errcode_cancel">发送取消</string>
+    <string name="errcode_deny">发送被拒绝</string>
+    <string name="errcode_unknown">发送返回</string>
+
+
+
+</resources>

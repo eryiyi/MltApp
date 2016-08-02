@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools" package="com.Lbins.Mlt"
+          android:versionCode="1"
+          android:versionName="1.0.0">
+
+    <uses-sdk android:minSdkVersion="14"/>
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <!-- QQ、QQ空间所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" tools:ignore="ProtectedPermissions"></uses-permission>
+
+    <!--mob-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!--高德地图sdk-->
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <!--读取短信-->
+    <uses-permission android:name="android.permission.READ_SMS"/>
+
+    <!--百度推送-->
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <application android:label="@string/app_name"
+                 android:theme="@android:style/Theme.NoTitleBar"
+                 android:name="com.Lbins.Mlt.UniversityApplication"
+                 android:icon="@drawable/logo">
+        <activity android:name="com.Lbins.Mlt.ui.WelcomeActivity"
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="adjustResize"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.Lbins.Mlt.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.DetailRecordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.RegistActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.RegistMsgActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AddRecordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AlbumActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AlbumChanceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.ImageDelActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.GalleryUrlActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.SelectProvinceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.SelectCityActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.SelectCountryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.ProfileActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.SettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AboutUsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AddSuggestActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.UpdatePwrActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.NearbyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name="com.Lbins.Mlt.ui.VipActivity"
+                  android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+                <!--这个intent-filter不要忘了-->
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                    <data android:scheme="wxe48c235e104c5332"/>
+                </intent-filter>
+       </activity>
+
+        <activity android:name="com.Lbins.Mlt.ui.WebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.VipDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.CityAreaActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.SelectTelActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.MineFavour" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.DemoOneActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.DemoTwoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.WeixinKefuActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.UpdateProfiletActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.SetGuanzhuActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.NoticeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.NoticeDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.RecordGzActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.FindPwrActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.ErweimaActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AboutActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.GPSNaviActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AddCompanyLocationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.FourFuwuActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.ShareMingpianActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AddVideoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.AddVideoSuccessActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.VideoPlayerActivity2" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.CircleActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+
+        <!--友盟-->
+        <meta-data android:value="579f1cd967e58e9ad100346a" android:name="UMENG_APPKEY"></meta-data>
+        <meta-data android:value="wandoujia" android:name="UMENG_CHANNEL"/>
+        <service
+                android:name="com.umeng.update.net.DownloadingService"
+                android:process=":DownloadingService">
+        </service>
+        <activity
+                android:name="com.umeng.update.UpdateDialogActivity"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity
+                android:name="com.umeng.socialize.editorpage.ShareActivity"
+                android:theme="@style/Theme.UMDefault"
+                android:excludeFromRecents="true"/>
+
+        <!--<activity-->
+                <!--android:name=".wxapi.WXEntryActivity"-->
+                <!--android:configChanges="keyboardHidden|orientation|screenSize"-->
+                <!--android:exported="true"-->
+                <!--android:screenOrientation="portrait"-->
+                <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"/>-->
+        <activity
+                android:name="com.Lbins.Mlt.wxapi.WXPayEntryActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:exported="true"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+                android:name="com.tencent.tauth.AuthActivity"
+                android:launchMode="singleTask"
+                android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1105177727"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.tencent.connect.common.AssistActivity"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!--mob-->
+        <activity
+                android:name="com.mob.tools.MobUIShell"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                android:windowSoftInputMode="stateHidden|adjustResize"/>
+
+        <!--高德地图-->
+        <meta-data
+                android:name="com.amap.api.v2.apikey"
+                android:value="3580ac9978abeb0f4ccde66be8454eec"/>
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService">
+        </service>
+
+        <!--百度推送-->
+        <!-- push富媒体，不使用富媒体推送不需要 -->
+        <activity
+                android:name="com.baidu.android.pushservice.richmedia.MediaViewActivity"
+                android:configChanges="orientation|keyboardHidden"
+                android:label="MediaViewActivity">
+        </activity>
+        <activity
+                android:name="com.baidu.android.pushservice.richmedia.MediaListActivity"
+                android:configChanges="orientation|keyboardHidden"
+                android:label="MediaListActivity"
+                android:launchMode="singleTask">
+        </activity>
+        <!-- push富媒体结束 -->
+
+        <!-- push应用定义消息receiver声明 -->
+        <receiver android:name="com.Lbins.Mlt.receiver.MyPushMessageReceiver">
+            <intent-filter>
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- push必须的receviver和service声明 -->
+        <receiver android:name="com.baidu.android.pushservice.PushServiceReceiver"
+                  android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK"/>
+                <!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.pushservice.RegistrationReceiver"
+                  android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service
+                android:name="com.baidu.android.pushservice.PushService"
+                android:exported="true"
+                android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.baidu.android.pushservice.CommandService"
+                 android:exported="true"/>
+        <!-- 4.6.2版本增加一个可选的Activity声明 -->
+        <activity
+                android:launchMode="singleInstance"
+                android:name="com.baidu.android.pushservice.PushKeepAlive"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- push结束 -->
+
+        <!-- 在百度开发者中心查询应用的API Key -->
+        <meta-data android:name="api_key" android:value="9SS7C0pyqg5Hbh1yo6xTuKgpEfBuRWQy"/>
+
+        <!--支付宝支付-->
+        <!-- alipay sdk begin -->
+        <activity
+                android:name="com.alipay.sdk.app.H5PayActivity"
+                android:configChanges="orientation|keyboardHidden|navigation"
+                android:exported="false"
+                android:screenOrientation="behind" >
+        </activity>
+        <activity
+                android:name="com.alipay.sdk.auth.AuthActivity"
+                android:configChanges="orientation|keyboardHidden|navigation"
+                android:exported="false"
+                android:screenOrientation="behind" >
+        </activity>
+
+    </application>
+</manifest>

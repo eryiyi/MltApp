@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/mm_main_bg"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@color/mm_top_bg"
+                    android:layout_height="@dimen/top_title_height">
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/back"
+                  android:drawablePadding="8dp"
+                  android:textSize="16sp"
+                  android:padding="6dp"
+                  android:id="@+id/back"
+                  android:drawableLeft="@drawable/button_selector_back"
+                  android:textColor="@color/white"
+                  android:layout_centerVertical="true"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="注册"
+                  android:textSize="18sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerVertical="true"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <com.Lbins.Mlt.widget.ReboundScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="vertical"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="match_parent"
+                          android:text="基本信息"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:textSize="14sp"
+                          android:layout_marginTop="12dp"
+                          android:textColor="@color/text_color"
+                          android:layout_height="wrap_content"/>
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginRight="25dp"
+                                android:layout_gravity="center|left"
+                                android:gravity="center|left"
+                                android:layout_marginTop="12dp"
+                                android:drawablePadding="8dp"
+                                android:background="@drawable/login_edit_bg"
+                                android:layout_height="wrap_content">
+                    <EditText android:layout_width="match_parent"
+                              android:hint="手机号"
+                              android:id="@+id/mm_emp_mobile"
+                              android:numeric="integer"
+                              android:phoneNumber="true"
+                              android:singleLine="true"
+                              android:textSize="14sp"
+                              android:drawablePadding="8dp"
+                              android:paddingLeft="15dp"
+                              android:layout_marginTop="10dp"
+                              android:drawableLeft="@drawable/phone_icon"
+                              android:background="@null"
+                              android:gravity="center|left"
+                              android:layout_height="wrap_content"/>
+                    <Button android:layout_width="wrap_content"
+                            android:text="获取验证码"
+                            android:id="@+id/btn_code"
+                            android:layout_marginRight="8dp"
+                            android:layout_alignParentRight="true"
+                            android:textColor="@color/white"
+                            android:padding="8dp"
+                            android:background="#ff5929"
+                            android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <EditText android:layout_width="match_parent"
+                          android:layout_marginLeft="25dp"
+                          android:layout_marginRight="25dp"
+                          android:layout_marginTop="12dp"
+                          android:paddingLeft="15dp"
+                          android:drawablePadding="8dp"
+                          android:numeric="integer"
+                          android:textSize="14sp"
+                          android:singleLine="true"
+                          android:id="@+id/code"
+                          android:hint="输入验证码"
+                          android:phoneNumber="true"
+                          android:background="@drawable/login_edit_bg"
+                          android:layout_height="wrap_content">
+                </EditText>
+                <EditText android:layout_width="match_parent"
+                          android:layout_marginLeft="25dp"
+                          android:layout_marginRight="25dp"
+                          android:layout_marginTop="12dp"
+                          android:paddingLeft="15dp"
+                          android:drawablePadding="8dp"
+                          android:textSize="14sp"
+                          android:id="@+id/password"
+                          android:hint="密码"
+                          android:password="true"
+                          android:drawableLeft="@drawable/login_pwr"
+                          android:background="@drawable/login_edit_bg"
+                          android:layout_height="wrap_content">
+                </EditText>
+                <EditText android:layout_width="match_parent"
+                          android:layout_marginLeft="25dp"
+                          android:layout_marginRight="25dp"
+                          android:layout_marginTop="12dp"
+                          android:paddingLeft="15dp"
+                          android:drawablePadding="8dp"
+                          android:textSize="14sp"
+                          android:id="@+id/surepass"
+                          android:hint="确认密码"
+                          android:password="true"
+                          android:drawableLeft="@drawable/login_pwr"
+                          android:background="@drawable/login_edit_bg"
+                          android:layout_height="wrap_content">
+                </EditText>
+
+                <View android:layout_width="match_parent"
+                      android:layout_marginTop="12dp"
+                      android:background="@color/gray_line_color"
+                      android:layout_height="0.5dp">
+
+                </View>
+                <TextView android:layout_width="match_parent"
+                          android:text="客户资料"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:textSize="14sp"
+                          android:layout_marginTop="12dp"
+                          android:textColor="@color/text_color"
+                          android:layout_height="wrap_content"/>
+
+                <EditText android:layout_width="match_parent"
+                          android:layout_marginLeft="25dp"
+                          android:layout_marginRight="25dp"
+                          android:singleLine="true"
+                          android:layout_marginTop="8dp"
+                          android:paddingLeft="15dp"
+                          android:id="@+id/mm_emp_nickname"
+                          android:drawablePadding="8dp"
+                          android:textSize="14sp"
+                          android:hint="请输入真实姓名"
+                          android:drawableLeft="@drawable/login_user"
+                          android:background="@drawable/login_edit_bg"
+                          android:layout_height="wrap_content">
+                </EditText>
+
+                <com.Lbins.Mlt.widget.CustomerSpinner
+                        android:background="@drawable/login_edit_bg"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/mm_emp_provinceId"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                </com.Lbins.Mlt.widget.CustomerSpinner>
+                <com.Lbins.Mlt.widget.CustomerSpinner
+                        android:background="@drawable/login_edit_bg"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="8dp"
+                        android:paddingLeft="15dp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/mm_emp_cityId"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                </com.Lbins.Mlt.widget.CustomerSpinner>
+                <com.Lbins.Mlt.widget.CustomerSpinner
+                        android:background="@drawable/login_edit_bg"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="8dp"
+                        android:paddingLeft="15dp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/mm_emp_countryId"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                </com.Lbins.Mlt.widget.CustomerSpinner>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="horizontal"
+                              android:padding="2dp"
+                              android:layout_gravity="center"
+                              android:gravity="center"
+                              android:layout_height="wrap_content">
+                    <CheckBox android:layout_width="wrap_content"
+                              android:padding="3dp"
+                              android:id="@+id/reg"
+                              android:textSize="12sp"
+                              android:layout_gravity="center"
+                              android:gravity="center|right"
+                              android:textColor="@color/text_color_default"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:text="《苗连通注册协议》"
+                              android:textSize="12sp"
+                              android:id="@+id/reg_msg"
+                              android:padding="3dp"
+                              android:layout_gravity="center"
+                              android:gravity="center|left"
+                              android:textColor="@color/button_color_orange_p"
+                              android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <Button android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="完成注册"
+                        android:id="@+id/btn"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:background="@drawable/btn_green_shape"
+                        android:layout_height="wrap_content"/>
+                <Button android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="客服咨询中心"
+                        android:id="@+id/btn_kf"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:background="@drawable/btn_green_shape"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </com.Lbins.Mlt.widget.ReboundScrollView>
+
+</LinearLayout>
