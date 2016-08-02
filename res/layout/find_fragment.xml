@@ -57,7 +57,7 @@
 
             <RelativeLayout android:layout_width="match_parent"
                             android:orientation="horizontal"
-                            android:layout_marginTop="1dp"
+                            android:layout_marginTop="0.1dp"
                             android:background="@drawable/btn_white_shape"
                             android:layout_below="@+id/liner_one"
                             android:id="@+id/liner_two"
@@ -118,7 +118,7 @@
             </RelativeLayout>
             <RelativeLayout android:layout_width="match_parent"
                             android:orientation="horizontal"
-                            android:layout_marginTop="1dp"
+                            android:layout_marginTop="0.1dp"
                             android:background="@drawable/btn_white_shape"
                             android:layout_below="@+id/liner_one"
                             android:id="@+id/liner_four"
@@ -148,7 +148,7 @@
             </RelativeLayout>
             <RelativeLayout android:layout_width="match_parent"
                             android:orientation="horizontal"
-                            android:layout_marginTop="1dp"
+                            android:layout_marginTop="0.1dp"
                             android:background="@drawable/btn_white_shape"
                             android:layout_below="@+id/liner_one"
                             android:id="@+id/liner_five"
@@ -178,7 +178,7 @@
             </RelativeLayout>
             <RelativeLayout android:layout_width="match_parent"
                             android:orientation="horizontal"
-                            android:layout_marginTop="1dp"
+                            android:layout_marginTop="0.1dp"
                             android:background="@drawable/btn_white_shape"
                             android:layout_below="@+id/liner_one"
                             android:id="@+id/liner_six"
@@ -208,7 +208,7 @@
             </RelativeLayout>
             <RelativeLayout android:layout_width="match_parent"
                             android:orientation="horizontal"
-                            android:layout_marginTop="1dp"
+                            android:layout_marginTop="0.1dp"
                             android:background="@drawable/btn_white_shape"
                             android:layout_below="@+id/liner_one"
                             android:id="@+id/liner_seven"

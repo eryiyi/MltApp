@@ -125,6 +125,7 @@
         <activity android:name="com.Lbins.Mlt.ui.AddVideoSuccessActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="com.Lbins.Mlt.ui.VideoPlayerActivity2" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="com.Lbins.Mlt.ui.CircleActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.SearchRecordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
 
         <!--友盟-->
         <meta-data android:value="579f1cd967e58e9ad100346a" android:name="UMENG_APPKEY"></meta-data>
