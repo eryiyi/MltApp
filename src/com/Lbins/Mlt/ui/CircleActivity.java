@@ -186,11 +186,11 @@ public class CircleActivity extends BaseActivity implements OnClickContentItemLi
             }
         }
         if ("111".equals(str)) {
+            recordVO = lists.get(position);
             switch (flag) {
                 case 2:
                 case 4: {
                     //头像
-                    recordVO = lists.get(position);
                     Intent mineV = new Intent(CircleActivity.this, ProfileActivity.class);
                     mineV.putExtra("id", recordVO.getMm_emp_id());
                     startActivity(mineV);
@@ -198,7 +198,6 @@ public class CircleActivity extends BaseActivity implements OnClickContentItemLi
                 break;
                 case 3:
                     //电话
-                    recordVO = lists.get(position);
                     if (recordVO != null && !StringUtil.isNullOrEmpty(recordVO.getMm_emp_mobile())) {
                         showTel(recordVO.getMm_emp_cover(), recordVO.getMm_emp_mobile(), recordVO.getMm_emp_nickname(), recordVO.getMm_emp_company());
                     } else {
@@ -209,7 +208,6 @@ public class CircleActivity extends BaseActivity implements OnClickContentItemLi
                 case 5:
                     //导航
                 {
-                    recordVO = lists.get(position);
                     if (!StringUtil.isNullOrEmpty(recordVO.getLat()) && !StringUtil.isNullOrEmpty(recordVO.getLng())) {
                         //开始导航
                         if (!StringUtil.isNullOrEmpty(UniversityApplication.lat) && !StringUtil.isNullOrEmpty(UniversityApplication.lng)) {

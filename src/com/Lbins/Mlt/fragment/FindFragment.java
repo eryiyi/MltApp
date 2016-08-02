@@ -36,6 +36,10 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.liner_one).setOnClickListener(this);
         view.findViewById(R.id.liner_two).setOnClickListener(this);
         view.findViewById(R.id.liner_three).setOnClickListener(this);
+        view.findViewById(R.id.liner_four).setOnClickListener(this);
+        view.findViewById(R.id.liner_five).setOnClickListener(this);
+        view.findViewById(R.id.liner_six).setOnClickListener(this);
+        view.findViewById(R.id.liner_seven).setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +67,34 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(shopV);
             }
                 break;
+            case R.id.liner_four:
+            {
+                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+                shopV.putExtra("mm_fuwu_type", "2");
+                startActivity(shopV);
+            }
+                break;
+            case R.id.liner_five:
+            {
+                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+                shopV.putExtra("mm_fuwu_type", "1");
+                startActivity(shopV);
+            }
+            break;
+            case R.id.liner_six:
+            {
+                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+                shopV.putExtra("mm_fuwu_type", "3");
+                startActivity(shopV);
+            }
+            break;
+            case R.id.liner_seven:
+            {
+                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+                shopV.putExtra("mm_fuwu_type", "4");
+                startActivity(shopV);
+            }
+            break;
 
         }
     }

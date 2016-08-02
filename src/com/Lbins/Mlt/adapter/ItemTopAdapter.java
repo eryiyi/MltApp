@@ -64,16 +64,15 @@ public class ItemTopAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContect).inflate(R.layout.item_top, null);
-            holder.btn_tel = (ImageView) convertView.findViewById(R.id.btn_tel);
+            holder.btn_tel = (TextView) convertView.findViewById(R.id.btn_tel);
             holder.head = (ImageView) convertView.findViewById(R.id.head);
             holder.nickname = (TextView) convertView.findViewById(R.id.nickname);
-            holder.dateline = (TextView) convertView.findViewById(R.id.dateline);
             holder.title = (TextView) convertView.findViewById(R.id.title);
             holder.content = (TextView) convertView.findViewById(R.id.content);
-            holder.img_xinyong = (ImageView) convertView.findViewById(R.id.img_xinyong);
-            holder.img_xiehui = (ImageView) convertView.findViewById(R.id.img_xiehui);
+            holder.img_xinyong = (TextView) convertView.findViewById(R.id.img_xinyong);
+            holder.img_xiehui = (TextView) convertView.findViewById(R.id.img_xiehui);
             holder.star = (ImageView) convertView.findViewById(R.id.star);
-            holder.btn_nav = (ImageView) convertView.findViewById(R.id.btn_nav);
+            holder.btn_nav = (TextView) convertView.findViewById(R.id.btn_nav);
 
             convertView.setTag(holder);
         } else {
@@ -83,7 +82,6 @@ public class ItemTopAdapter extends BaseAdapter {
         if (cell != null) {
             String title = (cell.getMm_emp_nickname() == null ? "" : cell.getMm_emp_nickname());
             holder.nickname.setText(title);
-            holder.dateline.setText("");
             holder.title.setText(cell.getMm_emp_company());
             String content = cell.getMm_emp_company_detail();
             if (!StringUtil.isNullOrEmpty(content)) {
@@ -127,7 +125,7 @@ public class ItemTopAdapter extends BaseAdapter {
             if (!StringUtil.isNullOrEmpty(UniversityApplication.fontSize)) {
                 holder.content.setTextSize(Float.valueOf(UniversityApplication.fontSize));
                 holder.title.setTextSize(Float.valueOf(UniversityApplication.fontSize));
-                holder.nickname.setTextSize(Float.valueOf(UniversityApplication.fontSize));
+//                holder.nickname.setTextSize(Float.valueOf(UniversityApplication.fontSize));
             }
             if (!StringUtil.isNullOrEmpty(UniversityApplication.fontColor)) {
                 if ("black".equals(UniversityApplication.fontColor)) {
@@ -183,15 +181,14 @@ public class ItemTopAdapter extends BaseAdapter {
     }
 
     class ViewHolder {
-        ImageView btn_tel;
+        TextView btn_tel;
         ImageView head;
         TextView nickname;
-        TextView dateline;
         TextView title;
         TextView content;
-        ImageView img_xinyong;
-        ImageView img_xiehui;
+        TextView img_xinyong;
+        TextView img_xiehui;
         ImageView star;
-        ImageView btn_nav;
+        TextView btn_nav;
     }
 }

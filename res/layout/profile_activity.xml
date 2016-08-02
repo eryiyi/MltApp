@@ -41,8 +41,8 @@
     <com.Lbins.Mlt.widget.ContentListView
             android:id="@+id/lstv"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:divider="@drawable/home_item_shadow"
             android:dividerHeight="1dp"
             android:layout_width="match_parent"
