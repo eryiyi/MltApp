@@ -463,7 +463,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                                 listAd  = data.getData();
                                 StringBuffer strb = new StringBuffer();
                                 for(MsgAd msgAd: MainActivity.listAd){
-                                    strb = strb.append(msgAd.getMsg_ad_title());
+                                    strb = strb.append(msgAd.getMsg_ad_title() + "--" );
                                 }
                                 btSecond.setText(strb.toString());
                             } else {

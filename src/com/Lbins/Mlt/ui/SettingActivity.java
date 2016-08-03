@@ -7,22 +7,37 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import com.Lbins.Mlt.R;
 import com.Lbins.Mlt.UniversityApplication;
 import com.Lbins.Mlt.base.BaseActivity;
+import com.Lbins.Mlt.base.InternetURL;
+import com.Lbins.Mlt.data.AboutUsData;
+import com.Lbins.Mlt.data.VersionUpdateObjData;
+import com.Lbins.Mlt.module.AboutUs;
 import com.Lbins.Mlt.module.SetFontColor;
 import com.Lbins.Mlt.module.SetFontSize;
+import com.Lbins.Mlt.module.VersionUpdateObj;
 import com.Lbins.Mlt.util.StringUtil;
 import com.Lbins.Mlt.widget.CustomerSpinner;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
 import com.umeng.update.UpdateStatus;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2016/2/19.
@@ -169,31 +184,37 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 //检查版本
             {
                 //
+//                Resources res = getBaseContext().getResources();
+//                String message = res.getString(R.string.check_new_version).toString();
+//                progressDialog = new ProgressDialog(SettingActivity.this);
+//                progressDialog.setMessage(message);
+//                progressDialog.show();
+//
+//                UmengUpdateAgent.forceUpdate(this);
+//
+//                UmengUpdateAgent.setUpdateListener(new UmengUpdateListener() {
+//                    @Override
+//                    public void onUpdateReturned(int i, UpdateResponse updateResponse) {
+//                        progressDialog.dismiss();
+//                        switch (i) {
+//                            case UpdateStatus.Yes:
+////                                Toast.makeText(mContext, "有新版本发现", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case UpdateStatus.No:
+//                                Toast.makeText(SettingActivity.this, R.string.new_version_also, Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case UpdateStatus.Timeout:
+//                                Toast.makeText(SettingActivity.this, R.string.net_pass, Toast.LENGTH_SHORT).show();
+//                                break;
+//                        }
+//                    }
+//                });
                 Resources res = getBaseContext().getResources();
                 String message = res.getString(R.string.check_new_version).toString();
                 progressDialog = new ProgressDialog(SettingActivity.this);
                 progressDialog.setMessage(message);
                 progressDialog.show();
-
-                UmengUpdateAgent.forceUpdate(this);
-
-                UmengUpdateAgent.setUpdateListener(new UmengUpdateListener() {
-                    @Override
-                    public void onUpdateReturned(int i, UpdateResponse updateResponse) {
-                        progressDialog.dismiss();
-                        switch (i) {
-                            case UpdateStatus.Yes:
-//                                Toast.makeText(mContext, "有新版本发现", Toast.LENGTH_SHORT).show();
-                                break;
-                            case UpdateStatus.No:
-                                Toast.makeText(SettingActivity.this, R.string.new_version_also, Toast.LENGTH_SHORT).show();
-                                break;
-                            case UpdateStatus.Timeout:
-                                Toast.makeText(SettingActivity.this, R.string.net_pass, Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-                    }
-                });
+                initData();
             }
             break;
             case R.id.btn_kf:
@@ -202,6 +223,69 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
         }
     }
+
+    public void initData() {
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                InternetURL.CHECK_VERSION_CODE_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        if (StringUtil.isJson(s)) {
+                            try {
+                                JSONObject jo = new JSONObject(s);
+                                String code1 = jo.getString("code");
+                                if (Integer.parseInt(code1) == 200) {
+                                    VersionUpdateObjData data = getGson().fromJson(s, VersionUpdateObjData.class);
+                                    VersionUpdateObj versionUpdateObj = data.getData();
+                                    if("true".equals(versionUpdateObj.getFlag())){
+                                        //更新
+                                        final Uri uri = Uri.parse(versionUpdateObj.getDurl());
+                                        final Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                                        startActivity(it);
+                                    }else{
+                                        showMsg(SettingActivity.this, "已是最新版本");
+                                    }
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(SettingActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                        }
+                        if (progressDialog != null) {
+                            progressDialog.dismiss();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        if (progressDialog != null) {
+                            progressDialog.dismiss();
+                        }
+                        Toast.makeText(SettingActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("mm_version_code", getV());
+                params.put("mm_version_package", "com.Lbins.Mlt");
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+        getRequestQueue().add(request);
+    }
+
 
     public void surequite(View view) {
         AlertDialog dialog = new AlertDialog.Builder(SettingActivity.this)
@@ -320,4 +404,16 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             return this.getString(R.string.can_not_find_version_name);
         }
     }
+
+    String getV(){
+        try {
+        PackageManager manager = this.getPackageManager();
+        PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
+            return info.versionName;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
 }

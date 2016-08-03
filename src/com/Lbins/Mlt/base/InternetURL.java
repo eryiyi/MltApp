@@ -128,4 +128,7 @@ public class InternetURL {
 
     //广告语
     public static final String MANAGER_MSG_AD_URL = INTERNAL + "listsMsgAds.do";
+
+    //判断版本号
+    public static final String CHECK_VERSION_CODE_URL = INTERNAL + "getVersionCode.do";
 }
