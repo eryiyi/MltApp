@@ -117,8 +117,8 @@ public class NoticeActivity extends BaseActivity implements View.OnClickListener
                                     Toast.makeText(NoticeActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
                                 }
                                 if (lists.size() == 0) {
-                                    no_data.setVisibility(View.GONE);
-                                    lstv.setVisibility(View.VISIBLE);
+                                    no_data.setVisibility(View.VISIBLE);
+                                    lstv.setVisibility(View.GONE);
                                 } else {
                                     no_data.setVisibility(View.GONE);
                                     lstv.setVisibility(View.VISIBLE);

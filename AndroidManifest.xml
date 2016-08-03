@@ -90,6 +90,7 @@
         <activity android:name="com.Lbins.Mlt.ui.AddSuggestActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="com.Lbins.Mlt.ui.UpdatePwrActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="com.Lbins.Mlt.ui.NearbyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.Lbins.Mlt.ui.OtherActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
 
         <activity android:name="com.Lbins.Mlt.ui.VipActivity"
                   android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">

@@ -84,16 +84,13 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
 
     private ImageView head;
     private TextView nickname;
-    private TextView vipType;
-    private TextView regTime;
-    private TextView regAddress;
-
-    private LinearLayout login_one;
 
     private TextView count_favour;
-    private TextView btn_chengxin_xiehui;
-    private ImageView img_xiehui;
-    private ImageView img_chengxin;
+//    private TextView btn_chengxin_xiehui;
+    private TextView img_xiehui;
+    private TextView img_chengxin;
+    private TextView item_area;
+    private TextView addLocation;
 
 
     private String txpic = "";
@@ -135,17 +132,17 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
             strName += " " + getResources().getString(R.string.miaomuemp);
         }
         nickname.setText(strName);
-
-        String vipTypeStr = "会员等级:";
-        if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("levelName", ""), String.class))) {
-            vipTypeStr += getGson().fromJson(getSp().getString("levelName", ""), String.class);
-        }
-        if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_endtime", ""), String.class))) {
-            vipTypeStr += "到期日期:" + getGson().fromJson(getSp().getString("mm_emp_endtime", ""), String.class);
-        }
-        vipType.setText(vipTypeStr);
-        regTime.setText("注册日期:" + getGson().fromJson(getSp().getString("mm_emp_regtime", ""), String.class));
-        regAddress.setText(getGson().fromJson(getSp().getString("provinceName", ""), String.class) + getGson().fromJson(getSp().getString("cityName", ""), String.class) + getGson().fromJson(getSp().getString("areaName", ""), String.class));
+//
+//        String vipTypeStr = "会员等级:";
+//        if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("levelName", ""), String.class))) {
+//            vipTypeStr += getGson().fromJson(getSp().getString("levelName", ""), String.class);
+//        }
+//        if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_endtime", ""), String.class))) {
+//            vipTypeStr += "到期日期:" + getGson().fromJson(getSp().getString("mm_emp_endtime", ""), String.class);
+//        }
+//        vipType.setText(vipTypeStr);
+//        regTime.setText("注册日期:" + getGson().fromJson(getSp().getString("mm_emp_regtime", ""), String.class));
+//        regAddress.setText(getGson().fromJson(getSp().getString("provinceName", ""), String.class) + getGson().fromJson(getSp().getString("cityName", ""), String.class) + getGson().fromJson(getSp().getString("areaName", ""), String.class));
         //判断是否苗木协会和苗木会员
         if ("1".equals(getGson().fromJson(getSp().getString("is_chengxin", ""), String.class))) {//is_miaomu
             img_chengxin.setVisibility(View.VISIBLE);
@@ -157,52 +154,28 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
         } else {
             img_xiehui.setVisibility(View.GONE);
         }
-        if ("0".equals(getGson().fromJson(getSp().getString("is_miaomu", ""), String.class)) || "0".equals(getGson().fromJson(getSp().getString("is_chengxin", ""), String.class))) {
-            btn_chengxin_xiehui.setVisibility(View.VISIBLE);
-        } else {
-            btn_chengxin_xiehui.setVisibility(View.GONE);
+        if(StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("areaName", ""), String.class))){
+            item_area.setText(getGson().fromJson(getSp().getString("areaName", ""), String.class));
         }
+
     }
 
     void initView() {
         head = (ImageView) view.findViewById(R.id.head);
         nickname = (TextView) view.findViewById(R.id.nickname);
-        vipType = (TextView) view.findViewById(R.id.vipType);
-        regTime = (TextView) view.findViewById(R.id.regTime);
-        regAddress = (TextView) view.findViewById(R.id.regAddress);
-        btn_chengxin_xiehui = (TextView) view.findViewById(R.id.btn_chengxin_xiehui);//申请苗木会员加入苗木协会
-        btn_chengxin_xiehui.setOnClickListener(this);
-        img_chengxin = (ImageView) view.findViewById(R.id.img_chengxin);
-        img_xiehui = (ImageView) view.findViewById(R.id.img_xiehui);
+        img_chengxin = (TextView) view.findViewById(R.id.img_chengxin);
+        img_xiehui = (TextView) view.findViewById(R.id.img_xiehui);
+        item_area = (TextView) view.findViewById(R.id.item_area);
+        addLocation = (TextView) view.findViewById(R.id.addLocation);
+        addLocation.setOnClickListener(this);
 
-
-        view.findViewById(R.id.relate_set).setOnClickListener(this);
-        view.findViewById(R.id.relate_shop).setOnClickListener(this);
-        view.findViewById(R.id.relate_bank).setOnClickListener(this);
-        view.findViewById(R.id.relate_work).setOnClickListener(this);
-        view.findViewById(R.id.relate_wuliu).setOnClickListener(this);
-        view.findViewById(R.id.relate_jiajie).setOnClickListener(this);
+        view.findViewById(R.id.liner_two).setOnClickListener(this);
+        view.findViewById(R.id.liner_three).setOnClickListener(this);
+        view.findViewById(R.id.liner_four).setOnClickListener(this);
         view.findViewById(R.id.relate_msg).setOnClickListener(this);
-        view.findViewById(R.id.realte_diaoche).setOnClickListener(this);
-        view.findViewById(R.id.relate_about).setOnClickListener(this);
         view.findViewById(R.id.realte_ziliao).setOnClickListener(this);
-        view.findViewById(R.id.relate_updatepwr).setOnClickListener(this);
-        view.findViewById(R.id.relate_suggest).setOnClickListener(this);
-        view.findViewById(R.id.relate_vip).setOnClickListener(this);
-        view.findViewById(R.id.relate_nearby).setOnClickListener(this);
         view.findViewById(R.id.relate_favour).setOnClickListener(this);
-        view.findViewById(R.id.relate_kefu).setOnClickListener(this);
-        view.findViewById(R.id.relate_more_area).setOnClickListener(this);
-        view.findViewById(R.id.relate_weixinkefu).setOnClickListener(this);
-        view.findViewById(R.id.relate_zhaoshang).setOnClickListener(this);
-        view.findViewById(R.id.relate_notice).setOnClickListener(this);
-        view.findViewById(R.id.relate_erweima).setOnClickListener(this);
-        view.findViewById(R.id.relate_map).setOnClickListener(this);
-        view.findViewById(R.id.realte_xiecheng).setOnClickListener(this);
-        view.findViewById(R.id.addLocation).setOnClickListener(this);
         head.setOnClickListener(this);
-        login_one = (LinearLayout) view.findViewById(R.id.login_one);
-        login_one.setVisibility(View.VISIBLE);
         count_favour = (TextView) view.findViewById(R.id.count_favour);
         count_favour.setVisibility(View.GONE);
     }
@@ -349,69 +322,69 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.relate_set:
+            case R.id.liner_four:
                 Intent setV = new Intent(getActivity(), SettingActivity.class);
                 startActivity(setV);
                 break;
-            case R.id.relate_shop:
-                //商店
-            {
-                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
-                shopV.putExtra("mm_fuwu_type", "0");
-                startActivity(shopV);
-            }
-            break;
-            case R.id.relate_bank:
-                //银行
-            {
-                getNetobj("2");
-            }
-            break;
-            case R.id.relate_work:
-                //装车工人
-            {
-                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
-                shopV.putExtra("mm_fuwu_type", "1");
-                startActivity(shopV);
-            }
-            break;
-            case R.id.relate_wuliu:
-                //物流中心
-            {
-                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
-                shopV.putExtra("mm_fuwu_type", "2");
-                startActivity(shopV);
-            }
-            break;
-            case R.id.relate_jiajie:
-                //嫁接
-            {
-                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
-                shopV.putExtra("mm_fuwu_type", "3");
-                startActivity(shopV);
-            }
-            break;
+//            case R.id.relate_shop:
+//                //商店
+//            {
+//                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+//                shopV.putExtra("mm_fuwu_type", "0");
+//                startActivity(shopV);
+//            }
+//            break;
+//            case R.id.relate_bank:
+//                //银行
+//            {
+//                getNetobj("2");
+//            }
+//            break;
+//            case R.id.relate_work:
+//                //装车工人
+//            {
+//                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+//                shopV.putExtra("mm_fuwu_type", "1");
+//                startActivity(shopV);
+//            }
+//            break;
+//            case R.id.relate_wuliu:
+//                //物流中心
+//            {
+//                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+//                shopV.putExtra("mm_fuwu_type", "2");
+//                startActivity(shopV);
+//            }
+//            break;
+//            case R.id.relate_jiajie:
+//                //嫁接
+//            {
+//                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+//                shopV.putExtra("mm_fuwu_type", "3");
+//                startActivity(shopV);
+//            }
+//            break;
             case R.id.relate_msg:
                 //短信
             {
                 getNetobj("1");
             }
             break;
-            case R.id.realte_diaoche:
-                //调车
-            {
-                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
-                shopV.putExtra("mm_fuwu_type", "4");
-                startActivity(shopV);
-            }
-            break;
-            case R.id.relate_about:
-                //关于我们
-            {
-                Intent aboutV = new Intent(getActivity(), AboutUsActivity.class);
-                startActivity(aboutV);
-            }
-            break;
+//            case R.id.realte_diaoche:
+//                //调车
+//            {
+//                Intent shopV = new Intent(getActivity(), FourFuwuActivity.class);
+//                shopV.putExtra("mm_fuwu_type", "4");
+//                startActivity(shopV);
+//            }
+//            break;
+//            case R.id.relate_about:
+//                //关于我们
+//            {
+//                Intent aboutV = new Intent(getActivity(), AboutUsActivity.class);
+//                startActivity(aboutV);
+//            }
+//            break;
             case R.id.realte_ziliao:
                 //用户资料
             {
@@ -420,33 +393,33 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
                 startActivity(profileV);
             }
             break;
-            case R.id.relate_updatepwr:
-                //修改密码
-            {
-                Intent updateP = new Intent(getActivity(), FindPwrActivity.class);
-                startActivity(updateP);
-            }
-            break;
-            case R.id.relate_suggest:
-                //意见反馈
-            {
-                Intent suggestV = new Intent(getActivity(), AddSuggestActivity.class);
-                startActivity(suggestV);
-            }
-            break;
-            case R.id.relate_vip: {
-                //购买VIP
-//                Intent vipV = new Intent(getActivity(), VipActivity.class);
-//                startActivity(vipV);
-                Toast.makeText(getActivity(), R.string.no_open, Toast.LENGTH_SHORT).show();
-            }
-            break;
-            case R.id.relate_nearby: {
-                //附近商家
-                Intent nearbyV = new Intent(getActivity(), NearbyActivity.class);
-                startActivity(nearbyV);
-            }
-            break;
+//            case R.id.relate_updatepwr:
+//                //修改密码
+//            {
+//                Intent updateP = new Intent(getActivity(), FindPwrActivity.class);
+//                startActivity(updateP);
+//            }
+//            break;
+//            case R.id.relate_suggest:
+//                //意见反馈
+//            {
+//                Intent suggestV = new Intent(getActivity(), AddSuggestActivity.class);
+//                startActivity(suggestV);
+//            }
+//            break;
+//            case R.id.relate_vip: {
+//                //购买VIP
+////                Intent vipV = new Intent(getActivity(), VipActivity.class);
+////                startActivity(vipV);
+//                Toast.makeText(getActivity(), R.string.no_open, Toast.LENGTH_SHORT).show();
+//            }
+//            break;
+//            case R.id.relate_nearby: {
+//                //附近商家
+//                Intent nearbyV = new Intent(getActivity(), NearbyActivity.class);
+//                startActivity(nearbyV);
+//            }
+//            break;
             case R.id.head:
                 //修改头像
             {
@@ -464,64 +437,78 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
                 startActivity(mineFavourV);
             }
             break;
-            case R.id.relate_kefu:
-            case R.id.btn_chengxin_xiehui: {
-                //客服中心
-                Intent kefuV = new Intent(getActivity(), SelectTelActivity.class);
-                startActivity(kefuV);
-            }
-            break;
-            case R.id.relate_more_area: {
-                //设置关注区域
-                Intent guanzhuV = new Intent(getActivity(), SetGuanzhuActivity.class);
-                startActivity(guanzhuV);
-            }
-            break;
-            case R.id.relate_weixinkefu:
-                Intent weixinV = new Intent(getActivity(), WeixinKefuActivity.class);
-                startActivity(weixinV);
-                break;
-            case R.id.relate_zhaoshang:
-                Toast.makeText(getActivity(), R.string.no_open, Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.relate_notice: {
-                //公告
-                Intent noticeV = new Intent(getActivity(), NoticeActivity.class);
-                startActivity(noticeV);
-            }
-            break;
-            case R.id.relate_erweima:
-                //
-                Intent intentErweima = new Intent(getActivity(), ErweimaActivity.class);
-                startActivity(intentErweima);
-                break;
-            case R.id.relate_map: {
-                //地图
-//                Intent mapV = new Intent(getActivity(), WebViewActivity.class);
-//                mapV.putExtra("strurl", "http://map.baidu.com/mobile/webapp/index/index");
-//                startActivity(mapV);
-
-                final Uri uri = Uri.parse("http://map.baidu.com/mobile/webapp/index/index");
-                final Intent it = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(it);
-            }
-            break;
-            case R.id.realte_xiecheng: {
-                //汽车火车飞机时刻表
-//                Intent xiechengV = new Intent(getActivity(), WebViewActivity.class);
-//                xiechengV.putExtra("strurl", "http://m.ctrip.com/html5");
-//                startActivity(xiechengV);
-
-                final Uri uri = Uri.parse("http://m.ctrip.com/html5");
-                final Intent it = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(it);
-            }
-            break;
+//            case R.id.relate_kefu:
+//            case R.id.btn_chengxin_xiehui: {
+//                //客服中心
+//                Intent kefuV = new Intent(getActivity(), SelectTelActivity.class);
+//                startActivity(kefuV);
+//            }
+//            break;
+//            case R.id.relate_more_area: {
+//                //设置关注区域
+//                Intent guanzhuV = new Intent(getActivity(), SetGuanzhuActivity.class);
+//                startActivity(guanzhuV);
+//            }
+//            break;
+//            case R.id.relate_weixinkefu:
+//                Intent weixinV = new Intent(getActivity(), WeixinKefuActivity.class);
+//                startActivity(weixinV);
+//                break;
+//            case R.id.relate_zhaoshang:
+//                Toast.makeText(getActivity(), R.string.no_open, Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.relate_notice: {
+//                //公告
+//                Intent noticeV = new Intent(getActivity(), NoticeActivity.class);
+//                startActivity(noticeV);
+//            }
+//            break;
+//            case R.id.relate_erweima:
+//                //
+//                Intent intentErweima = new Intent(getActivity(), ErweimaActivity.class);
+//                startActivity(intentErweima);
+//                break;
+//            case R.id.relate_map: {
+//                //地图
+////                Intent mapV = new Intent(getActivity(), WebViewActivity.class);
+////                mapV.putExtra("strurl", "http://map.baidu.com/mobile/webapp/index/index");
+////                startActivity(mapV);
+//
+//                final Uri uri = Uri.parse("http://map.baidu.com/mobile/webapp/index/index");
+//                final Intent it = new Intent(Intent.ACTION_VIEW, uri);
+//                startActivity(it);
+//            }
+//            break;
+//            case R.id.realte_xiecheng: {
+//                //汽车火车飞机时刻表
+////                Intent xiechengV = new Intent(getActivity(), WebViewActivity.class);
+////                xiechengV.putExtra("strurl", "http://m.ctrip.com/html5");
+////                startActivity(xiechengV);
+//
+//                final Uri uri = Uri.parse("http://m.ctrip.com/html5");
+//                final Intent it = new Intent(Intent.ACTION_VIEW, uri);
+//                startActivity(it);
+//            }
+//            break;
             case R.id.addLocation: {
                 Intent addLocationV = new Intent(getActivity(), AddCompanyLocationActivity.class);
                 startActivity(addLocationV);
             }
             break;
+            case R.id.liner_three:
+            {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                intent.putExtra("id", getGson().fromJson(getSp().getString("mm_emp_id", ""), String.class));
+                startActivity(intent);
+            }
+                break;
+            case R.id.liner_two:
+            {
+                //其他服务
+                Intent otherV = new Intent(getActivity(), OtherActivity.class);
+                startActivity(otherV);
+            }
+                break;
         }
     }
 
@@ -589,7 +576,6 @@ public class FourFragment extends BaseFragment implements View.OnClickListener, 
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equals("sure_quite")) {
-                login_one.setVisibility(View.GONE);
             }
         }
     };
