@@ -22,7 +22,6 @@
                   android:layout_centerVertical="true"
                   android:layout_height="wrap_content"/>
         <EditText android:layout_width="match_parent"
-                  android:drawableRight="@drawable/index_sousuo"
                   android:paddingLeft="8dp"
                   android:layout_marginLeft="6dp"
                   android:layout_marginRight="6dp"
@@ -37,6 +36,13 @@
                   android:background="@drawable/index_sousuo_back"
                   android:layout_centerInParent="true"
                   android:layout_height="wrap_content"/>
+        <ImageView android:layout_width="wrap_content"
+                   android:padding="12dp"
+                   android:id="@+id/btn_search"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:src="@drawable/index_sousuo"
+                   android:layout_height="wrap_content"/>
     </RelativeLayout>
 
     <View android:layout_width="match_parent"

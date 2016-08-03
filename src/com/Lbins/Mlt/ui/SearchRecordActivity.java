@@ -58,6 +58,7 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
     private static boolean IS_REFRESH = true;
     private ImageView no_data;
     private EditText keyword;
+    private ImageView btn_search;
 
     String content = "";
 
@@ -72,6 +73,8 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
     }
     void initView() {
         this.findViewById(R.id.back).setOnClickListener(this);
+        btn_search = (ImageView) this.findViewById(R.id.btn_search);
+        btn_search.setOnClickListener(this);
         no_data = (ImageView) this.findViewById(R.id.no_data);
         lstv = (PullToRefreshListView) this.findViewById(R.id.lstv);
         adapter = new ItemRecordAdapter(lists, SearchRecordActivity.this);
@@ -139,7 +142,11 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
         if(!StringUtil.isNullOrEmpty(content)){
             keyword.setText(content);
         }
-
+        if(StringUtil.isNullOrEmpty(keyword.getText().toString())){
+            btn_search.setImageDrawable(getResources().getDrawable(R.drawable.index_sousuo));
+        }else {
+            btn_search.setImageDrawable(getResources().getDrawable(R.drawable.umeng_update_close_bg_tap));
+        }
     }
 
     // 登陆注册选择窗口
@@ -195,6 +202,12 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
         public void afterTextChanged(Editable s) {
             IS_REFRESH = true;
             pageIndex = 1;
+            //判断是否有内容
+            if(StringUtil.isNullOrEmpty(keyword.getText().toString())){
+                btn_search.setImageDrawable(getResources().getDrawable(R.drawable.index_sousuo));
+            }else {
+                btn_search.setImageDrawable(getResources().getDrawable(R.drawable.umeng_update_close_bg_tap));
+            }
             if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
                 content = keyword.getText().toString();
                 progressDialog = new ProgressDialog(SearchRecordActivity.this);
@@ -495,6 +508,11 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.back:
                 finish();
+                break;
+            case R.id.btn_search:
+            {
+                keyword.setText("");
+            }
                 break;
         }
     }
