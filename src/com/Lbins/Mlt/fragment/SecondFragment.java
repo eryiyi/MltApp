@@ -78,16 +78,16 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
     private String is_guanzhu = "0";//0不是查询关注区域 1是查询关注的区域
 
     //导航
-//    private ViewPager viewpager;
-//    private AdViewPagerAdapter adapterAd;
-//    private LinearLayout viewGroup;
-//    private ImageView dot, dots[];
-//    private Runnable runnable;
-//    private int autoChangeTime = 5000;
-//    private List<AdObj> listsAd = new ArrayList<AdObj>();
-//
-//    private LinearLayout headLiner;
-//    private RelativeLayout search_liner;
+    private ViewPager viewpager;
+    private AdViewPagerAdapter adapterAd;
+    private LinearLayout viewGroup;
+    private ImageView dot, dots[];
+    private Runnable runnable;
+    private int autoChangeTime = 5000;
+    private List<AdObj> listsAd = new ArrayList<AdObj>();
+
+    private LinearLayout headLiner;
+    private RelativeLayout search_liner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,14 +106,14 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
         } else if (!StringUtil.isNullOrEmpty(UniversityApplication.area)) {
             mLocation.setText(UniversityApplication.area + "-" + getResources().getString(R.string.dianjiseeother));
         }
-//        getAd();
+        getAd();
         return view;
     }
 
     void initView() {
-//        headLiner = (LinearLayout) LayoutInflater.from(getActivity()).inflate(R.layout.ad_header, null);
-//        search_liner = (RelativeLayout) headLiner.findViewById(R.id.search_liner);
-//        search_liner.setVisibility(View.GONE);
+        headLiner = (LinearLayout) LayoutInflater.from(getActivity()).inflate(R.layout.ad_header, null);
+        search_liner = (RelativeLayout) headLiner.findViewById(R.id.search_liner);
+        search_liner.setVisibility(View.GONE);
         mLocation = (TextView) view.findViewById(R.id.mLocation);
         mLocation.setOnClickListener(this);
         view.findViewById(R.id.btn_add).setOnClickListener(this);
@@ -123,7 +123,7 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
         lstv = (PullToRefreshListView) view.findViewById(R.id.lstv);
         ListView listView = lstv.getRefreshableView();
 
-//        listView.addHeaderView(headLiner);
+        listView.addHeaderView(headLiner);
         adapter = new ItemRecordAdapter(lists, getActivity());
         lstv.setMode(PullToRefreshBase.Mode.BOTH);
         lstv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -211,17 +211,18 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
     };
 
     RecordMsg recordVO;
-
     @Override
     public void onClickContentItem(int position, int flag, Object object) {
         String str = (String) object;
         if ("000".equals(str)) {
             switch (flag) {
                 case 0:
-//                    AdObj adObj = listsAd.get(position);
-//                    Intent webV = new Intent(getActivity(), WebViewActivity.class);
-//                    webV.putExtra("strurl", adObj.getMm_ad_url() == null ? "" : adObj.getMm_ad_url());
-//                    startActivity(webV);
+                    AdObj adObj = listsAd.get(position);
+                    if(!StringUtil.isNullOrEmpty(adObj.getMm_ad_url())){
+                        Intent webV = new Intent(getActivity(), WebViewActivity.class);
+                        webV.putExtra("strurl", adObj.getMm_ad_url());
+                        startActivity(webV);
+                    }
                     break;
             }
         }
@@ -729,198 +730,200 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
         picAddDialog.show();
     }
 
-//    private void initViewPager() {
-//        adapterAd = new AdViewPagerAdapter(getActivity());
-//        adapterAd.change(listsAd);
-//        adapterAd.setOnClickContentItemListener(this);
-//        viewpager = (ViewPager) headLiner.findViewById(R.id.viewpager);
-//        viewpager.setAdapter(adapterAd);
-//        viewpager.setOnPageChangeListener(myOnPageChangeListener);
-//        initDot();
-//        runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                int next = viewpager.getCurrentItem() + 1;
-//                if (next >= adapterAd.getCount()) {
-//                    next = 0;
-//                }
-//                viewHandler.sendEmptyMessage(next);
-//            }
-//        };
-//        viewHandler.postDelayed(runnable, autoChangeTime);
-//    }
-//
-//
-//    // 初始化dot视图
-//    private void initDot() {
-//        viewGroup = (LinearLayout) headLiner.findViewById(R.id.viewGroup);
-//
-//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-//                20, 20);
-//        layoutParams.setMargins(4, 3, 4, 3);
-//
-//        dots = new ImageView[adapterAd.getCount()];
-//        for (int i = 0; i < adapterAd.getCount(); i++) {
-//            dot = new ImageView(getActivity());
-//            dot.setLayoutParams(layoutParams);
-//            dots[i] = dot;
-//            dots[i].setTag(i);
-//            dots[i].setOnClickListener(onClick);
-//
-//            if (i == 0) {
-//                dots[i].setBackgroundResource(R.drawable.dotc);
-//            } else {
-//                dots[i].setBackgroundResource(R.drawable.dotn);
-//            }
-//
-//            viewGroup.addView(dots[i]);
-//        }
-//    }
-//
-//    ViewPager.OnPageChangeListener myOnPageChangeListener = new ViewPager.OnPageChangeListener() {
-//
-//        @Override
-//        public void onPageScrollStateChanged(int arg0) {
-//        }
-//
-//        @Override
-//        public void onPageScrolled(int arg0, float arg1, int arg2) {
-//        }
-//
-//        @Override
-//        public void onPageSelected(int arg0) {
-//            setCurDot(arg0);
-//            viewHandler.removeCallbacks(runnable);
-//            viewHandler.postDelayed(runnable, autoChangeTime);
-//        }
-//
-//    };
-//    // 实现dot点击响应功能,通过点击事件更换页面
-//    View.OnClickListener onClick = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            int position = (Integer) v.getTag();
-//            setCurView(position);
-//        }
-//
-//    };
-//
-//    /**
-//     * 设置当前的引导页
-//     */
-//    private void setCurView(int position) {
-//        if (position < 0 || position > adapterAd.getCount()) {
-//            return;
-//        }
-//        viewpager.setCurrentItem(position);
-////        if (!StringUtil.isNullOrEmpty(lists.get(position).getNewsTitle())){
-////            titleSlide = lists.get(position).getNewsTitle();
-////            if(titleSlide.length() > 13){
-////                titleSlide = titleSlide.substring(0,12);
-////                article_title.setText(titleSlide);//当前新闻标题显示
-////            }else{
-////                article_title.setText(titleSlide);//当前新闻标题显示
-////            }
-////        }
-//
-//    }
-//
-//    /**
-//     * 选中当前引导小点
-//     */
-//    private void setCurDot(int position) {
-//        for (int i = 0; i < dots.length; i++) {
-//            if (position == i) {
-//                dots[i].setBackgroundResource(R.drawable.dotc);
-//            } else {
-//                dots[i].setBackgroundResource(R.drawable.dotn);
+    private void initViewPager() {
+        adapterAd = new AdViewPagerAdapter(getActivity());
+        adapterAd.change(listsAd);
+        adapterAd.setOnClickContentItemListener(this);
+        viewpager = (ViewPager) headLiner.findViewById(R.id.viewpager);
+        viewpager.setAdapter(adapterAd);
+        viewpager.setOnPageChangeListener(myOnPageChangeListener);
+        initDot();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                int next = viewpager.getCurrentItem() + 1;
+                if (next >= adapterAd.getCount()) {
+                    next = 0;
+                }
+                viewHandler.sendEmptyMessage(next);
+            }
+        };
+        viewHandler.postDelayed(runnable, autoChangeTime);
+    }
+
+
+    // 初始化dot视图
+    private void initDot() {
+        viewGroup = (LinearLayout) headLiner.findViewById(R.id.viewGroup);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                20, 20);
+        layoutParams.setMargins(4, 3, 4, 3);
+
+        dots = new ImageView[adapterAd.getCount()];
+        for (int i = 0; i < adapterAd.getCount(); i++) {
+            dot = new ImageView(getActivity());
+            dot.setLayoutParams(layoutParams);
+            dots[i] = dot;
+            dots[i].setTag(i);
+            dots[i].setOnClickListener(onClick);
+
+            if (i == 0) {
+                dots[i].setBackgroundResource(R.drawable.dotc);
+            } else {
+                dots[i].setBackgroundResource(R.drawable.dotn);
+            }
+
+            viewGroup.addView(dots[i]);
+        }
+    }
+
+    ViewPager.OnPageChangeListener myOnPageChangeListener = new ViewPager.OnPageChangeListener() {
+
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+        }
+
+        @Override
+        public void onPageSelected(int arg0) {
+            setCurDot(arg0);
+            viewHandler.removeCallbacks(runnable);
+            viewHandler.postDelayed(runnable, autoChangeTime);
+        }
+
+    };
+    // 实现dot点击响应功能,通过点击事件更换页面
+    View.OnClickListener onClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int position = (Integer) v.getTag();
+            setCurView(position);
+        }
+
+    };
+
+    /**
+     * 设置当前的引导页
+     */
+    private void setCurView(int position) {
+        if (position < 0 || position > adapterAd.getCount()) {
+            return;
+        }
+        viewpager.setCurrentItem(position);
+//        if (!StringUtil.isNullOrEmpty(lists.get(position).getNewsTitle())){
+//            titleSlide = lists.get(position).getNewsTitle();
+//            if(titleSlide.length() > 13){
+//                titleSlide = titleSlide.substring(0,12);
+//                article_title.setText(titleSlide);//当前新闻标题显示
+//            }else{
+//                article_title.setText(titleSlide);//当前新闻标题显示
 //            }
 //        }
-//    }
-//
-//    /**
-//     * 每隔固定时间切换广告栏图片
-//     */
-//    @SuppressLint("HandlerLeak")
-//    private final Handler viewHandler = new Handler() {
-//
-//        @Override
-//        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-//            setCurView(msg.what);
-//        }
-//
-//    };
-//
-//    private void getAd() {
-//        StringRequest request = new StringRequest(
-//                Request.Method.POST,
-//                InternetURL.GET_AD_LOGIN_URL,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String s) {
-//                        if (StringUtil.isJson(s)) {
-//                            try {
-//                                JSONObject jo = new JSONObject(s);
-//                                String code = jo.getString("code");
-//                                if (Integer.parseInt(code) == 200) {
-//                                    AdObjData data = getGson().fromJson(s, AdObjData.class);
-//                                    listsAd.clear();
-//                                    if (data != null && data.getData().size() > 0) {
-//                                        listsAd.addAll(data.getData());
-//                                    }
-//                                    initViewPager();
-//                                } else {
-//                                    Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
-//                                }
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            }
-//
-//                        } else {
-//                            Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError volleyError) {
-//                        Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//        ) {
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<String, String>();
-//                params.put("mm_ad_type", "2");
-//                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_provinceId", ""), String.class))) {
-//                    params.put("mm_emp_provinceId", getGson().fromJson(getSp().getString("mm_emp_provinceId", ""), String.class));
-//                }
-//                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_cityId", ""), String.class))) {
-//                    params.put("mm_emp_cityId", getGson().fromJson(getSp().getString("mm_emp_cityId", ""), String.class));
-//                }
-//                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class))) {
-//                    params.put("mm_emp_countryId", getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class));
-//                }
-//                return params;
-//            }
-//
-//            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<String, String>();
-//                params.put("Content-Type", "application/x-www-form-urlencoded");
-//                return params;
-//            }
-//        };
-//        getRequestQueue().add(request);
-//    }
-private SelectTelPopWindow telphonePop;
+
+    }
+
+    /**
+     * 选中当前引导小点
+     */
+    private void setCurDot(int position) {
+        for (int i = 0; i < dots.length; i++) {
+            if (position == i) {
+                dots[i].setBackgroundResource(R.drawable.dotc);
+            } else {
+                dots[i].setBackgroundResource(R.drawable.dotn);
+            }
+        }
+    }
+
+    /**
+     * 每隔固定时间切换广告栏图片
+     */
+    @SuppressLint("HandlerLeak")
+    private final Handler viewHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            setCurView(msg.what);
+        }
+
+    };
+
+    private void getAd() {
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                InternetURL.GET_AD_LOGIN_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        if (StringUtil.isJson(s)) {
+                            try {
+                                JSONObject jo = new JSONObject(s);
+                                String code = jo.getString("code");
+                                if (Integer.parseInt(code) == 200) {
+                                    AdObjData data = getGson().fromJson(s, AdObjData.class);
+                                    listsAd.clear();
+                                    if (data != null && data.getData().size() > 0) {
+                                        listsAd.addAll(data.getData());
+                                    }
+                                    initViewPager();
+                                } else {
+                                    Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        } else {
+                            Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("mm_ad_type", "2");
+                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_provinceId", ""), String.class))) {
+                    params.put("mm_emp_provinceId", getGson().fromJson(getSp().getString("mm_emp_provinceId", ""), String.class));
+                }
+                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_cityId", ""), String.class))) {
+                    params.put("mm_emp_cityId", getGson().fromJson(getSp().getString("mm_emp_cityId", ""), String.class));
+                }
+                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class))) {
+                    params.put("mm_emp_countryId", getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class));
+                }
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+        getRequestQueue().add(request);
+    }
+
+    private SelectTelPopWindow telphonePop;
     private String tmpTel = "";
     private void showTel(String cover, String tel, String nickname,String company) {
         tmpTel = tel;
         telphonePop = new SelectTelPopWindow(getActivity(), itemsOnClick, nickname, company, cover);
         telphonePop.showAtLocation(getActivity().findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
     }
+
     private View.OnClickListener itemsOnClick = new View.OnClickListener() {
         public void onClick(View v) {
             telphonePop.dismiss();
@@ -937,4 +940,5 @@ private SelectTelPopWindow telphonePop;
             }
         }
     };
+
 }

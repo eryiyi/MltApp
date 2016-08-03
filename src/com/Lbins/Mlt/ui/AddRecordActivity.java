@@ -791,10 +791,10 @@ public class AddRecordActivity extends BaseActivity implements View.OnClickListe
             resultBuffer.append(mIatResults.get(key));
         }
         if(!StringUtil.isNullOrEmpty(resultBuffer.toString()) && resultBuffer.toString().length() > 0){
-            mm_msg_content.setText(resultBuffer.toString().substring(0, resultBuffer.toString().length()-1));
+            mm_msg_content.setText(mm_msg_content.getText().toString() + resultBuffer.toString().substring(0, resultBuffer.toString().length()-1));
         }else {
             if(!StringUtil.isNullOrEmpty(resultBuffer.toString())){
-                mm_msg_content.setText(resultBuffer.toString());
+                mm_msg_content.setText(mm_msg_content.getText().toString() + resultBuffer.toString());
             }
         }
 //        mResultText.setSelection(mResultText.length());

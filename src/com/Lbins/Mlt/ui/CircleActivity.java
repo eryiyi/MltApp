@@ -67,13 +67,13 @@ public class CircleActivity extends BaseActivity implements OnClickContentItemLi
     private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
     ImageLoader imageLoader = ImageLoader.getInstance();//图片加载类
     //导航
-//    private ViewPager viewpager;
-//    private AdViewPagerAdapter adapterAd;
-//    private LinearLayout viewGroup;
-//    private ImageView dot, dots[];
-//    private Runnable runnable;
-//    private int autoChangeTime = 5000;
-//    private List<AdObj> listsAd = new ArrayList<AdObj>();
+    private ViewPager viewpager;
+    private AdViewPagerAdapter adapterAd;
+    private LinearLayout viewGroup;
+    private ImageView dot, dots[];
+    private Runnable runnable;
+    private int autoChangeTime = 5000;
+    private List<AdObj> listsAd = new ArrayList<AdObj>();
 
     private EditText keyword;
     private TextView title;
@@ -85,7 +85,7 @@ public class CircleActivity extends BaseActivity implements OnClickContentItemLi
         registerBoradcastReceiver();
         initView();
         initData();
-//        getAd();
+        getAd();
     }
 
     private TextWatcher watcher = new TextWatcher() {
@@ -178,10 +178,12 @@ public class CircleActivity extends BaseActivity implements OnClickContentItemLi
         if ("000".equals(str)) {
             switch (flag) {
                 case 0:
-//                    AdObj adObj = listsAd.get(position);
-//                    Intent webV = new Intent(CircleActivity.this, WebViewActivity.class);
-//                    webV.putExtra("strurl", adObj.getMm_ad_url() == null ? "" : adObj.getMm_ad_url());
-//                    startActivity(webV);
+                    AdObj adObj = listsAd.get(position);
+                    if(!StringUtil.isNullOrEmpty(adObj.getMm_ad_url())){
+                        Intent webV = new Intent(CircleActivity.this, WebViewActivity.class);
+                        webV.putExtra("strurl", adObj.getMm_ad_url());
+                        startActivity(webV);
+                    }
                     break;
             }
         }
@@ -302,10 +304,10 @@ public class CircleActivity extends BaseActivity implements OnClickContentItemLi
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            if (lists.size() > 0) {
+                            if (lists.size() == 0) {
                                 no_data.setVisibility(View.GONE);
                             } else {
-                                no_data.setVisibility(View.VISIBLE);
+                                no_data.setVisibility(View.GONE);
                             }
                         }
                     }
@@ -439,190 +441,190 @@ public class CircleActivity extends BaseActivity implements OnClickContentItemLi
         picAddDialog.show();
     }
 
-//    private void initViewPager() {
-//        adapterAd = new AdViewPagerAdapter(CircleActivity.this);
-//        adapterAd.change(listsAd);
-//        adapterAd.setOnClickContentItemListener(this);
-//        viewpager = (ViewPager) headLiner.findViewById(R.id.viewpager);
-//        viewpager.setAdapter(adapterAd);
-//        viewpager.setOnPageChangeListener(myOnPageChangeListener);
-//        initDot();
-//        runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                int next = viewpager.getCurrentItem() + 1;
-//                if (next >= adapterAd.getCount()) {
-//                    next = 0;
-//                }
-//                viewHandler.sendEmptyMessage(next);
-//            }
-//        };
-//        viewHandler.postDelayed(runnable, autoChangeTime);
-//    }
-//
-//
-//    // 初始化dot视图
-//    private void initDot() {
-//        viewGroup = (LinearLayout) headLiner.findViewById(R.id.viewGroup);
-//
-//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-//                20, 20);
-//        layoutParams.setMargins(4, 3, 4, 3);
-//
-//        dots = new ImageView[adapterAd.getCount()];
-//        for (int i = 0; i < adapterAd.getCount(); i++) {
-//            dot = new ImageView(CircleActivity.this);
-//            dot.setLayoutParams(layoutParams);
-//            dots[i] = dot;
-//            dots[i].setTag(i);
-//            dots[i].setOnClickListener(onClick);
-//
-//            if (i == 0) {
-//                dots[i].setBackgroundResource(R.drawable.dotc);
-//            } else {
-//                dots[i].setBackgroundResource(R.drawable.dotn);
-//            }
-//
-//            viewGroup.addView(dots[i]);
-//        }
-//    }
-//
-//    ViewPager.OnPageChangeListener myOnPageChangeListener = new ViewPager.OnPageChangeListener() {
-//
-//        @Override
-//        public void onPageScrollStateChanged(int arg0) {
-//        }
-//
-//        @Override
-//        public void onPageScrolled(int arg0, float arg1, int arg2) {
-//        }
-//
-//        @Override
-//        public void onPageSelected(int arg0) {
-//            setCurDot(arg0);
-//            viewHandler.removeCallbacks(runnable);
-//            viewHandler.postDelayed(runnable, autoChangeTime);
-//        }
-//
-//    };
-//    // 实现dot点击响应功能,通过点击事件更换页面
-//    View.OnClickListener onClick = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            int position = (Integer) v.getTag();
-//            setCurView(position);
-//        }
-//
-//    };
-//
-//    /**
-//     * 设置当前的引导页
-//     */
-//    private void setCurView(int position) {
-//        if (position < 0 || position > adapterAd.getCount()) {
-//            return;
-//        }
-//        viewpager.setCurrentItem(position);
-////        if (!StringUtil.isNullOrEmpty(lists.get(position).getNewsTitle())){
-////            titleSlide = lists.get(position).getNewsTitle();
-////            if(titleSlide.length() > 13){
-////                titleSlide = titleSlide.substring(0,12);
-////                article_title.setText(titleSlide);//当前新闻标题显示
-////            }else{
-////                article_title.setText(titleSlide);//当前新闻标题显示
-////            }
-////        }
-//
-//    }
-//
-//    /**
-//     * 选中当前引导小点
-//     */
-//    private void setCurDot(int position) {
-//        for (int i = 0; i < dots.length; i++) {
-//            if (position == i) {
-//                dots[i].setBackgroundResource(R.drawable.dotc);
-//            } else {
-//                dots[i].setBackgroundResource(R.drawable.dotn);
+    private void initViewPager() {
+        adapterAd = new AdViewPagerAdapter(CircleActivity.this);
+        adapterAd.change(listsAd);
+        adapterAd.setOnClickContentItemListener(this);
+        viewpager = (ViewPager) headLiner.findViewById(R.id.viewpager);
+        viewpager.setAdapter(adapterAd);
+        viewpager.setOnPageChangeListener(myOnPageChangeListener);
+        initDot();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                int next = viewpager.getCurrentItem() + 1;
+                if (next >= adapterAd.getCount()) {
+                    next = 0;
+                }
+                viewHandler.sendEmptyMessage(next);
+            }
+        };
+        viewHandler.postDelayed(runnable, autoChangeTime);
+    }
+
+
+    // 初始化dot视图
+    private void initDot() {
+        viewGroup = (LinearLayout) headLiner.findViewById(R.id.viewGroup);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                20, 20);
+        layoutParams.setMargins(4, 3, 4, 3);
+
+        dots = new ImageView[adapterAd.getCount()];
+        for (int i = 0; i < adapterAd.getCount(); i++) {
+            dot = new ImageView(CircleActivity.this);
+            dot.setLayoutParams(layoutParams);
+            dots[i] = dot;
+            dots[i].setTag(i);
+            dots[i].setOnClickListener(onClick);
+
+            if (i == 0) {
+                dots[i].setBackgroundResource(R.drawable.dotc);
+            } else {
+                dots[i].setBackgroundResource(R.drawable.dotn);
+            }
+
+            viewGroup.addView(dots[i]);
+        }
+    }
+
+    ViewPager.OnPageChangeListener myOnPageChangeListener = new ViewPager.OnPageChangeListener() {
+
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+        }
+
+        @Override
+        public void onPageSelected(int arg0) {
+            setCurDot(arg0);
+            viewHandler.removeCallbacks(runnable);
+            viewHandler.postDelayed(runnable, autoChangeTime);
+        }
+
+    };
+    // 实现dot点击响应功能,通过点击事件更换页面
+    View.OnClickListener onClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int position = (Integer) v.getTag();
+            setCurView(position);
+        }
+
+    };
+
+    /**
+     * 设置当前的引导页
+     */
+    private void setCurView(int position) {
+        if (position < 0 || position > adapterAd.getCount()) {
+            return;
+        }
+        viewpager.setCurrentItem(position);
+//        if (!StringUtil.isNullOrEmpty(lists.get(position).getNewsTitle())){
+//            titleSlide = lists.get(position).getNewsTitle();
+//            if(titleSlide.length() > 13){
+//                titleSlide = titleSlide.substring(0,12);
+//                article_title.setText(titleSlide);//当前新闻标题显示
+//            }else{
+//                article_title.setText(titleSlide);//当前新闻标题显示
 //            }
 //        }
-//    }
-//
-//    /**
-//     * 每隔固定时间切换广告栏图片
-//     */
-//    @SuppressLint("HandlerLeak")
-//    private final Handler viewHandler = new Handler() {
-//
-//        @Override
-//        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-//            setCurView(msg.what);
-//        }
-//
-//    };
-//
-//    private void getAd() {
-//        StringRequest request = new StringRequest(
-//                Request.Method.POST,
-//                InternetURL.GET_AD_LOGIN_URL,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String s) {
-//                        if (StringUtil.isJson(s)) {
-//                            try {
-//                                JSONObject jo = new JSONObject(s);
-//                                String code = jo.getString("code");
-//                                if (Integer.parseInt(code) == 200) {
-//                                    AdObjData data = getGson().fromJson(s, AdObjData.class);
-//                                    listsAd.clear();
-//                                    if (data != null && data.getData().size() > 0) {
-//                                        listsAd.addAll(data.getData());
-//                                    }
-//                                    initViewPager();
-//                                } else {
-//                                    Toast.makeText( CircleActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
-//                                }
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            }
-//
-//                        } else {
-//                            Toast.makeText( CircleActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError volleyError) {
-//                        Toast.makeText(CircleActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//        ) {
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<String, String>();
-//                params.put("mm_ad_type", "1");
-//                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_provinceId", ""), String.class))) {
-//                    params.put("mm_emp_provinceId", getGson().fromJson(getSp().getString("mm_emp_provinceId", ""), String.class));
-//                }
-//                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_cityId", ""), String.class))) {
-//                    params.put("mm_emp_cityId", getGson().fromJson(getSp().getString("mm_emp_cityId", ""), String.class));
-//                }
-//                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class))) {
-//                    params.put("mm_emp_countryId", getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class));
-//                }
-//                return params;
-//            }
-//
-//            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<String, String>();
-//                params.put("Content-Type", "application/x-www-form-urlencoded");
-//                return params;
-//            }
-//        };
-//        getRequestQueue().add(request);
-//    }
+
+    }
+
+    /**
+     * 选中当前引导小点
+     */
+    private void setCurDot(int position) {
+        for (int i = 0; i < dots.length; i++) {
+            if (position == i) {
+                dots[i].setBackgroundResource(R.drawable.dotc);
+            } else {
+                dots[i].setBackgroundResource(R.drawable.dotn);
+            }
+        }
+    }
+
+    /**
+     * 每隔固定时间切换广告栏图片
+     */
+    @SuppressLint("HandlerLeak")
+    private final Handler viewHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            setCurView(msg.what);
+        }
+
+    };
+
+    private void getAd() {
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                InternetURL.GET_AD_LOGIN_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        if (StringUtil.isJson(s)) {
+                            try {
+                                JSONObject jo = new JSONObject(s);
+                                String code = jo.getString("code");
+                                if (Integer.parseInt(code) == 200) {
+                                    AdObjData data = getGson().fromJson(s, AdObjData.class);
+                                    listsAd.clear();
+                                    if (data != null && data.getData().size() > 0) {
+                                        listsAd.addAll(data.getData());
+                                    }
+                                    initViewPager();
+                                } else {
+                                    Toast.makeText( CircleActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        } else {
+                            Toast.makeText( CircleActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Toast.makeText(CircleActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("mm_ad_type", "1");
+                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_provinceId", ""), String.class))) {
+                    params.put("mm_emp_provinceId", getGson().fromJson(getSp().getString("mm_emp_provinceId", ""), String.class));
+                }
+                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_cityId", ""), String.class))) {
+                    params.put("mm_emp_cityId", getGson().fromJson(getSp().getString("mm_emp_cityId", ""), String.class));
+                }
+                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class))) {
+                    params.put("mm_emp_countryId", getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class));
+                }
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+        getRequestQueue().add(request);
+    }
 
 }

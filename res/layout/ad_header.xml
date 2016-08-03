@@ -28,39 +28,39 @@
                   android:layout_centerInParent="true"
                   android:layout_height="wrap_content"/>
     </RelativeLayout>
-    <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:id="@+id/ad"-->
-            <!--android:layout_height="150dp">-->
-        <!--<android.support.v4.view.ViewPager-->
-                <!--android:id="@+id/viewpager"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent">-->
-        <!--</android.support.v4.view.ViewPager>-->
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/ad"
+            android:layout_height="150dp">
+        <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
 
-        <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_alignParentBottom="true"-->
-                <!--android:layout_alignParentLeft="true"-->
-                <!--android:gravity="center"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:paddingBottom="3dp"-->
-                <!--android:paddingTop="3dp">-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp">
 
-            <!--<LinearLayout-->
-                    <!--android:id="@+id/viewGroup"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="right"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:orientation="horizontal"-->
-                    <!--android:paddingBottom="1dp"-->
-                    <!--android:paddingTop="1dp">-->
-            <!--</LinearLayout>-->
-        <!--</LinearLayout>-->
-    <!--</RelativeLayout>-->
+            <LinearLayout
+                    android:id="@+id/viewGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="1dp"
+                    android:paddingTop="1dp">
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
     <TextView android:layout_width="match_parent"
               android:text="我要在这里出现"
               android:textColor="@color/white"
