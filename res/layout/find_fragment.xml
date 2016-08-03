@@ -4,19 +4,19 @@
               android:background="@color/mm_main_bg"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <RelativeLayout android:layout_width="match_parent"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:background="@color/mm_top_bg"
-                    android:layout_height="@dimen/top_title_height">
-        <TextView android:layout_width="wrap_content"
-                  android:layout_centerInParent="true"
-                  android:text="商圈"
-                  android:gravity="center_vertical"
-                  android:textColor="@color/text_color"
-                  android:textSize="18sp"
-                  android:layout_height="45dp"/>
-    </RelativeLayout>
+    <!--<RelativeLayout android:layout_width="match_parent"-->
+                    <!--android:focusable="true"-->
+                    <!--android:focusableInTouchMode="true"-->
+                    <!--android:background="@color/mm_top_bg"-->
+                    <!--android:layout_height="@dimen/top_title_height">-->
+        <!--<TextView android:layout_width="wrap_content"-->
+                  <!--android:layout_centerInParent="true"-->
+                  <!--android:text="商圈"-->
+                  <!--android:gravity="center_vertical"-->
+                  <!--android:textColor="@color/text_color"-->
+                  <!--android:textSize="18sp"-->
+                  <!--android:layout_height="45dp"/>-->
+    <!--</RelativeLayout>-->
 
     <com.Lbins.Mlt.widget.ReboundScrollView android:layout_width="match_parent"
                                                android:layout_height="match_parent">

@@ -3,8 +3,23 @@
                 android:layout_width="match_parent"
                 android:background="@color/white"
                 android:layout_height="match_parent">
-
+    <com.Lbins.Mlt.widget.MarqueeButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btSecond"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:textColor="@color/button_color_red_n"
+            android:focusable="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusableInTouchMode="true"
+            android:scrollHorizontally="true"
+            android:background="@color/gray"
+            android:singleLine="true"
+            android:padding="8dp"
+            android:textSize="16dip"/>
     <FrameLayout
+            android:layout_below="@+id/btSecond"
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:background="@color/white"

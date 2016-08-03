@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import com.Lbins.Mlt.MainActivity;
 import com.Lbins.Mlt.R;
 import com.Lbins.Mlt.UniversityApplication;
 import com.Lbins.Mlt.adapter.AdViewPagerAdapter;
@@ -35,8 +36,10 @@ import com.Lbins.Mlt.data.RecordData;
 import com.Lbins.Mlt.library.internal.PullToRefreshBase;
 import com.Lbins.Mlt.library.internal.PullToRefreshListView;
 import com.Lbins.Mlt.module.AdObj;
+import com.Lbins.Mlt.module.MsgAd;
 import com.Lbins.Mlt.ui.*;
 import com.Lbins.Mlt.util.StringUtil;
+import com.Lbins.Mlt.widget.MarqueeButton;
 import com.Lbins.Mlt.widget.SelectTelPopWindow;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -88,6 +91,7 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
 
     private LinearLayout headLiner;
     private RelativeLayout search_liner;
+//    private MarqueeButton btSecond;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -111,6 +115,8 @@ public class SecondFragment extends BaseFragment implements OnClickContentItemLi
     }
 
     void initView() {
+
+
         headLiner = (LinearLayout) LayoutInflater.from(getActivity()).inflate(R.layout.ad_header, null);
         search_liner = (RelativeLayout) headLiner.findViewById(R.id.search_liner);
         search_liner.setVisibility(View.GONE);

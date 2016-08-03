@@ -13,15 +13,18 @@ import android.widget.Toast;
 import com.Lbins.Mlt.base.BaseActivity;
 import com.Lbins.Mlt.base.InternetURL;
 import com.Lbins.Mlt.data.GuanzhuAreaObjData;
+import com.Lbins.Mlt.data.MsgAdData;
 import com.Lbins.Mlt.fragment.FindFragment;
 import com.Lbins.Mlt.fragment.FirstFragment;
 import com.Lbins.Mlt.fragment.FourFragment;
 import com.Lbins.Mlt.fragment.SecondFragment;
 import com.Lbins.Mlt.module.GuanzhuAreaObj;
+import com.Lbins.Mlt.module.MsgAd;
 import com.Lbins.Mlt.ui.*;
 import com.Lbins.Mlt.util.HttpUtils;
 import com.Lbins.Mlt.util.StringUtil;
 import com.Lbins.Mlt.widget.MainPopMenu;
+import com.Lbins.Mlt.widget.MarqueeButton;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -29,6 +32,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,6 +62,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private int index;
     public MainPopMenu mainPopMenu;
+    private MarqueeButton btSecond;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,11 +70,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         setContentView(R.layout.main);
 //        UmengUpdateAgent.update(this);
         //获得上一次登陆时间
-
         //保存这次登陆时间
         save("denglu_time", System.currentTimeMillis() + "");
         res = getResources();
         fm = getSupportFragmentManager();
+
         initView();
 
         switchFragment(R.id.foot_one);
@@ -84,6 +89,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         mainPopMenu = new MainPopMenu(this);
         mainPopMenu.setOnItemClickListener(this);
+        getDataMsgAd();
     }
 
     boolean isMobileNet, isWifiNet;
@@ -157,7 +163,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         foot_two.setOnClickListener(this);
         foot_three.setOnClickListener(this);
         foot_four.setOnClickListener(this);
-
+        btSecond = (MarqueeButton) this.findViewById(R.id.btSecond);
     }
 
 
@@ -442,5 +448,54 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 //        };
 //        getRequestQueue().add(request);
 //    }
+
+    public static List<MsgAd> listAd = new ArrayList<MsgAd>();
+    void getDataMsgAd(){
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                InternetURL.MANAGER_MSG_AD_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        if (StringUtil.isJson(s)) {
+                            MsgAdData data = getGson().fromJson(s, MsgAdData.class);
+                            if (Integer.parseInt(data.getCode()) == 200) {
+                                listAd  = data.getData();
+                                StringBuffer strb = new StringBuffer();
+                                for(MsgAd msgAd: MainActivity.listAd){
+                                    strb = strb.append(msgAd.getMsg_ad_title());
+                                }
+                                btSecond.setText(strb.toString());
+                            } else {
+                                Toast.makeText(MainActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(MainActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Toast.makeText(MainActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+        getRequestQueue().add(request);
+    }
+
 
 }
