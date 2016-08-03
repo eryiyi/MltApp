@@ -139,6 +139,19 @@
                         android:verticalSpacing="5dip"/>
             </RelativeLayout>
 
+            <TextView android:layout_width="match_parent"
+                      android:id="@+id/iat_recognize"
+                      android:layout_marginBottom="8dp"
+                      android:padding="12dp"
+                      android:layout_alignParentBottom="true"
+                      android:layout_marginLeft="30dp"
+                      android:layout_marginRight="30dp"
+                      android:drawableLeft="@drawable/add_redio"
+                      android:gravity="center"
+                      android:background="@drawable/btn_radio_red_shape_center"
+                      android:textColor="@color/white"
+                      android:text="语音输入，点击说话"
+                      android:layout_height="wrap_content"/>
 
             <Button android:layout_width="match_parent"
                     android:padding="12dp"
@@ -167,6 +180,7 @@
                       android:layout_marginRight="30dp"
                       android:background="@drawable/btn_green_shape"
                       android:layout_height="wrap_content"/>
+
         </LinearLayout>
     </com.Lbins.Mlt.widget.ReboundScrollView>
 

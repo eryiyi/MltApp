@@ -6,7 +6,7 @@ import com.Lbins.Mlt.R;
 import com.amap.api.navi.AMapNaviListener;
 import com.amap.api.navi.model.*;
 import com.autonavi.tbt.TrafficFacilityInfo;
-import com.iflytek.cloud.speech.*;
+import com.iflytek.cloud.*;
 
 /**
  * 语音播报组件
@@ -18,26 +18,6 @@ public class TTSController implements SynthesizerListener, AMapNaviListener {
     private Context mContext;
     // 合成对象.
     private SpeechSynthesizer mSpeechSynthesizer;
-    /**
-     * 用户登录回调监听器.
-     */
-    private SpeechListener listener = new SpeechListener() {
-
-        @Override
-        public void onData(byte[] arg0) {
-        }
-
-        @Override
-        public void onCompleted(SpeechError error) {
-            if (error != null) {
-
-            }
-        }
-
-        @Override
-        public void onEvent(int arg0, Bundle arg1) {
-        }
-    };
 
     TTSController(Context context) {
         mContext = context;
@@ -51,12 +31,30 @@ public class TTSController implements SynthesizerListener, AMapNaviListener {
     }
 
     public void init() {
-        SpeechUser.getUser().login(mContext, null, null,
-                "appid=" + mContext.getString(R.string.app_id_xunfei), listener);
+//        SpeechUser.getUser().login(mContext, null, null,
+//                "appid=" + mContext.getString(R.string.app_id_xunfei), listener);
+        // 初始化合成对象
+        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext, mTtsInitListener);
+
         // 初始化合成对象.
-        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext);
+//        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext);
         initSpeechSynthesizer();
     }
+    /**
+     * 初始化监听。
+     */
+    private InitListener mTtsInitListener = new InitListener() {
+        @Override
+        public void onInit(int code) {
+            if (code != ErrorCode.SUCCESS) {
+            } else {
+                // 初始化成功，之后可以调用startSpeaking方法
+                // 注：有的开发者在onCreate方法中创建完合成对象之后马上就调用startSpeaking进行合成，
+                // 正确的做法是将onCreate中的startSpeaking调用移至这里
+            }
+        }
+    };
+
 
     /**
      * 使用SpeechSynthesizer合成语音，不弹出合成Dialog.
@@ -69,7 +67,8 @@ public class TTSController implements SynthesizerListener, AMapNaviListener {
         }
         if (null == mSpeechSynthesizer) {
             // 创建合成对象.
-            mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext);
+//            mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext);
+            mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext, mTtsInitListener);
             initSpeechSynthesizer();
         }
         // 进行语音合成.
@@ -112,6 +111,11 @@ public class TTSController implements SynthesizerListener, AMapNaviListener {
     public void onCompleted(SpeechError arg0) {
         // TODO Auto-generated method stub
         isfinish = true;
+    }
+
+    @Override
+    public void onEvent(int i, int i1, int i2, Bundle bundle) {
+
     }
 
     @Override

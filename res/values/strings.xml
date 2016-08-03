@@ -166,7 +166,7 @@
     <string name="add_msg">请输入您要发布的信息内容，包括您要求的品种、规格、质量及联系方式。您将对您发布信息的真实性负法律责任，请谨慎填写！</string>
 
 
-    <string name="app_id_xunfei">5707245c</string>
+    <string name="app_id_xunfei">57a1557b</string>
     <string-array name="preference_values_tts_role">z
         <item>xiaoyan</item>
         <item>xiaoyu</item>
@@ -211,5 +211,55 @@
     <string name="errcode_unknown">发送返回</string>
 
 
+    <string-array name="ise_language_entries">
+        <item>英语</item>
+        <item>汉语</item>
+    </string-array>
+    <string-array name="ise_language_values">
+        <item>en_us</item>
+        <item>zh_cn</item>
+    </string-array>
+    <string-array name="category_entries">
+        <item>单字</item>
+        <item>词语</item>
+        <item>句子</item>
+    </string-array>
+    <string-array name="category_values">
+        <item>read_syllable</item>
+        <item>read_word</item>
+        <item>read_sentence</item>
+    </string-array>
+    <string-array name="result_level_entries">
+        <item>plain</item>
+        <item>complete</item>
+    </string-array>
+    <!-- 标点符号 -->
+    <string-array name="punc_entries">
+        <item>有标点</item>
+        <item>无标点</item>
+    </string-array>
+    <string-array name="punc_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="dwa_entries">
+        <item>开启</item>
+        <item>关闭</item>
+    </string-array>
+    <!-- 语言 -->
+    <string-array name="language_entries">
+        <item>普通话</item>
+        <item>粤语</item>
+        <item>河南话</item>
+        <item>英语</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>mandarin</item>
+        <item>cantonese</item>
+        <item>henanese</item>
+        <item>en_us</item>
+    </string-array>
+    <string name="text_begin">请开始说话…</string>
+    <string name="pref_key_iat_show">iat_show</string>
 
 </resources>

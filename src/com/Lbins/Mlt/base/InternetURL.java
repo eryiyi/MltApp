@@ -15,6 +15,8 @@ public class InternetURL {
     public static final String WEIXIN_partnerId = "1368485802";
     public static final String WEIXIN_MCH_ID = "1368485802";
 
+    public static final String XUNFEI_APPID = "57a1557b";
+
     public static final String QINIU_URL = "http://7xqzj9.com1.z0.glb.clouddn.com/";
 
     public static final String QINIU_SPACE = "hmmm-pic";

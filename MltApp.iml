@@ -15,5 +15,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="alipaySDK-20150724" level="project" />
     <orderEntry type="library" name="SocialSDK_WeiXin_1" level="project" />
+    <orderEntry type="library" name="Sunflower" level="project" />
   </component>
 </module>

@@ -10,6 +10,7 @@ import com.Lbins.Mlt.base.InternetURL;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.iflytek.cloud.SpeechUtility;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -84,6 +85,9 @@ public class UniversityApplication extends Application {
         //微信 appid appsecret
         PlatformConfig.setQQZone("1105177727", "BQ8MVq3t9yOFl1SP");
         // QQ和Qzone appid appkey
+
+        // 讯飞
+        SpeechUtility.createUtility(getApplicationContext(), "appid=" + InternetURL.XUNFEI_APPID);
     }
 
 
