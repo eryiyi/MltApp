@@ -3,21 +3,21 @@ package com.Lbins.Mlt.dao;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.Lbins.Mlt.dao.dao.DaoMaster;
+import com.Lbins.Mlt.dao.dao.HotWordObjDao;
 import com.Lbins.Mlt.dao.dao.RecordMsgDao;
 import com.Lbins.Mlt.dao.dao.ShoppingCartDao;
+import com.Lbins.Mlt.module.HotWordObj;
 import de.greenrobot.dao.query.QueryBuilder;
 
 import java.util.List;
 
-/**
- * Created by liuzwei on 2015/3/13.
- */
 public class DBHelper {
     private static Context mContext;
     private static DBHelper instance;
     private static DaoMaster.DevOpenHelper helper;
     private ShoppingCartDao testDao;
     private RecordMsgDao recordDao;
+    private HotWordObjDao hotWordObjDao;
     private static SQLiteDatabase db;
     private static DaoMaster daoMaster;
 
@@ -30,11 +30,12 @@ public class DBHelper {
             if (mContext == null) {
                 mContext = context;
             }
-            helper = new DaoMaster.DevOpenHelper(context, "tree_hm_db_t", null);
+            helper = new DaoMaster.DevOpenHelper(context, "mlt_db_t", null);
             db = helper.getWritableDatabase();
             daoMaster = new DaoMaster(db);
             instance.testDao = daoMaster.newSession().getShoppingCartDao();
             instance.recordDao = daoMaster.newSession().getRecordMsgDao();
+            instance.hotWordObjDao = daoMaster.newSession().getHotWordObjDao();
         }
         return instance;
     }
@@ -165,5 +166,21 @@ public class DBHelper {
      */
     public void updateRecord(RecordMsg test) {
         recordDao.update(test);
+    }
+
+    /**
+     * 插入或是更新数据
+     *
+     * @param hotWordObj
+     * @return
+     */
+    public long saveWord(HotWordObj hotWordObj) {
+        return hotWordObjDao.insertOrReplace(hotWordObj);
+    }
+
+
+    public List<HotWordObj> getWords(){
+        QueryBuilder qb = hotWordObjDao.queryBuilder();
+        return qb.list();
     }
 }

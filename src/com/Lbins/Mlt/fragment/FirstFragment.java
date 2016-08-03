@@ -517,7 +517,7 @@ public class FirstFragment extends BaseFragment implements OnClickContentItemLis
             case R.id.btn_search:
             {
                 //搜索
-                Intent searchV = new Intent(getActivity(), SearchRecordActivity.class);
+                Intent searchV = new Intent(getActivity(), SearchHotActivity.class);
                 startActivity(searchV);
             }
                 break;

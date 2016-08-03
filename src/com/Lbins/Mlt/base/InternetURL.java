@@ -121,4 +121,6 @@ public class InternetURL {
     public static final String UPDATE_ORDER_TOSERVER = INTERNAL + "orderUpdate.do";
     //微信统一下单notify_url
     public static final String WEIXIN_NOTIFY_URL = INTERNAL + "orderSaveWxFk.do";
+    //获取热门搜索词汇
+    public static final String GET_HOT_WORD_URL = INTERNAL + "getHotWord.do";
 }

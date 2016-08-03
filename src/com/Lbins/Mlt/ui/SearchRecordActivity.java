@@ -59,11 +59,14 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
     private ImageView no_data;
     private EditText keyword;
 
+    String content = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_activity);
         registerBoradcastReceiver();
+        content = getIntent().getExtras().getString("content");
         initView();
         initData();
     }
@@ -84,6 +87,10 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
                 IS_REFRESH = true;
                 pageIndex = 1;
                 if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
+                    progressDialog = new ProgressDialog(SearchRecordActivity.this);
+                    progressDialog.setIndeterminate(true);
+                    progressDialog.show();
+                    content = keyword.getText().toString();
                     initData();
                 } else {
                     lstv.onRefreshComplete();
@@ -101,6 +108,10 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
                 IS_REFRESH = false;
                 pageIndex++;
                 if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
+                    progressDialog = new ProgressDialog(SearchRecordActivity.this);
+                    progressDialog.setIndeterminate(true);
+                    progressDialog.show();
+                    content = keyword.getText().toString();
                     initData();
                 } else {
                     lstv.onRefreshComplete();
@@ -125,6 +136,10 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
         keyword = (EditText) this.findViewById(R.id.keyword);
         keyword.addTextChangedListener(watcher);
         no_data.setOnClickListener(this);
+        if(!StringUtil.isNullOrEmpty(content)){
+            keyword.setText(content);
+        }
+
     }
 
     // 登陆注册选择窗口
@@ -181,6 +196,11 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
             IS_REFRESH = true;
             pageIndex = 1;
             if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
+                content = keyword.getText().toString();
+                progressDialog = new ProgressDialog(SearchRecordActivity.this);
+                progressDialog.setIndeterminate(true);
+                progressDialog.show();
+                content = keyword.getText().toString();
                 initData();
             } else {
                 lstv.onRefreshComplete();
@@ -382,6 +402,9 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
                                 no_data.setVisibility(View.GONE);
                                 lstv.setVisibility(View.VISIBLE);
                             }
+                            if (progressDialog != null) {
+                                progressDialog.dismiss();
+                            }
                         }
 
                     }
@@ -389,7 +412,9 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-
+                        if(progressDialog != null){
+                            progressDialog.dismiss();
+                        }
 //                        Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -411,13 +436,19 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
                     params.put("cityid", "");
                 }
 
+                if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class))) {
+                    params.put("countryid", getGson().fromJson(getSp().getString("mm_emp_countryId", ""), String.class));
+                } else {
+                    params.put("countryid", "");
+                }
+
                 if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("access_token", ""), String.class))) {
                     params.put("accessToken", getGson().fromJson(getSp().getString("access_token", ""), String.class));
                 } else {
                     params.put("accessToken", "");
                 }
-                if (!StringUtil.isNullOrEmpty(keyword.getText().toString())) {
-                    params.put("keyword", keyword.getText().toString());
+                if (!StringUtil.isNullOrEmpty(content)) {
+                    params.put("keyword", content);
                 }
                 //当前登陆者的等级vip 0  -- 4
                 if (!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mm_level_num", ""), String.class))) {
@@ -451,6 +482,10 @@ public class SearchRecordActivity extends BaseActivity implements View.OnClickLi
                 IS_REFRESH = true;
                 pageIndex = 1;
                 if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
+                    progressDialog = new ProgressDialog(SearchRecordActivity.this);
+                    progressDialog.setIndeterminate(true);
+                    progressDialog.show();
+                    content = keyword.getText().toString();
                     initData();
                 } else {
                     lstv.onRefreshComplete();

@@ -3,6 +3,7 @@ package com.Lbins.Mlt.dao.dao;
 import android.database.sqlite.SQLiteDatabase;
 import com.Lbins.Mlt.dao.RecordMsg;
 import com.Lbins.Mlt.dao.ShoppingCart;
+import com.Lbins.Mlt.module.HotWordObj;
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.AbstractDaoSession;
 import de.greenrobot.dao.identityscope.IdentityScopeType;
@@ -22,9 +23,11 @@ public class DaoSession extends AbstractDaoSession {
 
     private final DaoConfig shoppingCartDaoConfig;
     private final DaoConfig recordMsgDaoConfig;
+    private final DaoConfig hotWordObjDaoConfig;
 
     private final ShoppingCartDao shoppingCartDao;
     private final RecordMsgDao recordMsgDao;
+    private final HotWordObjDao hotWordObjDao;
 
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -36,24 +39,37 @@ public class DaoSession extends AbstractDaoSession {
         recordMsgDaoConfig = daoConfigMap.get(RecordMsgDao.class).clone();
         recordMsgDaoConfig.initIdentityScope(type);
 
+
         shoppingCartDao = new ShoppingCartDao(shoppingCartDaoConfig, this);
         recordMsgDao = new RecordMsgDao(recordMsgDaoConfig, this);
 
         registerDao(ShoppingCart.class, shoppingCartDao);
         registerDao(RecordMsg.class, recordMsgDao);
+
+        hotWordObjDaoConfig = daoConfigMap.get(HotWordObjDao.class).clone();
+        hotWordObjDaoConfig.initIdentityScope(type);
+
+        hotWordObjDao = new HotWordObjDao(hotWordObjDaoConfig, this);
+
+        registerDao(HotWordObj.class, hotWordObjDao);
     }
     
     public void clear() {
         shoppingCartDaoConfig.getIdentityScope().clear();
         recordMsgDaoConfig.getIdentityScope().clear();
+        hotWordObjDaoConfig.getIdentityScope().clear();
     }
 
     public ShoppingCartDao getShoppingCartDao() {
         return shoppingCartDao;
     }
 
+    public HotWordObjDao getHotWordObjDao() {
+        return hotWordObjDao;
+    }
+
+
     public RecordMsgDao getRecordMsgDao() {
         return recordMsgDao;
     }
-
 }

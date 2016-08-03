@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@drawable/zhuye_item_select"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/myListItem"
+              >
+
+    <TextView android:layout_height="wrap_content"
+              android:layout_width="match_parent"
+              android:id="@+id/itemTitle"
+              android:textColor="@color/text_color"
+              android:text="zhagnsan"
+              android:layout_marginLeft="25dp"
+              android:padding="8dp"
+              android:textSize="16sp" />
+
+</LinearLayout>

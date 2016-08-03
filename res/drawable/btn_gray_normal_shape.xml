@@ -4,6 +4,6 @@
 
     <solid android:color="@color/zhuye_item_bgh"/>
 
-    <corners android:radius="6dp"/>
+    <corners android:radius="0dp"/>
 
 </shape>

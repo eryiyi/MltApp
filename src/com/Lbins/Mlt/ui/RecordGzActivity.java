@@ -84,7 +84,7 @@ public class RecordGzActivity extends BaseActivity implements View.OnClickListen
                 }
 
                 foot_one.setImageResource(R.drawable.tree_toolbar_wanted);
-                foot_two.setImageResource(R.drawable.tree_toolbar_sell_p);
+                foot_two.setImageResource(R.drawable.tree_toolbar_wanted);
                 break;
         }
         fragmentTransaction.commit();
