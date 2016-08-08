@@ -63,7 +63,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="60dp"
                 android:id="@+id/item_cover"
-                android:src="@drawable/default_avatar"
+                android:src="@drawable/logo"
                 android:layout_height="55dp"/>
     </RelativeLayout>
 </LinearLayout>

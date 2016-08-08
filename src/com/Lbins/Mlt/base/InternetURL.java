@@ -1,8 +1,8 @@
 package com.Lbins.Mlt.base;
 
 public class InternetURL {
-    public static final String INTERNAL = "http://smilekyle.xicp.net:42765/";
-//    public static final String INTERNAL = "http://www.zhlmlt.cn/";
+//    public static final String INTERNAL = "http://smilekyle.xicp.net:42765/";
+    public static final String INTERNAL = "http://www.zhlmlt.cn/";
 
     //mob
     public static final String APP_MOB_KEY = "159376f684b00";

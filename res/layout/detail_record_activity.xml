@@ -34,7 +34,7 @@
                             android:id="@+id/head_top"
                             android:layout_height="wrap_content">
                 <ImageView
-                        android:src="@drawable/default_avatar"
+                        android:src="@drawable/logo"
                         android:layout_width="60dp"
                         android:scaleType="centerCrop"
                         android:id="@+id/head"

@@ -58,7 +58,7 @@
                             android:id="@+id/head"
                             android:layout_marginTop="15dp"
                             android:layout_marginLeft="25dp"
-                            android:src="@drawable/default_avatar"
+                            android:src="@drawable/logo"
                             android:layout_height="60dp"/>
                     <ImageView android:layout_width="25dp"
                                android:id="@+id/img_chengxin"
